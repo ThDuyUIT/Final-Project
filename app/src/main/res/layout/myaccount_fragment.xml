@@ -18,10 +18,10 @@
       tools:layout_editor_absoluteX="0dp"
       tools:layout_editor_absoluteY="61dp">
 
-    <com.mikhaellopez.circularimageview.CircularImageView
-        android:layout_width="140dp"
-        android:layout_height="140dp"
-        android:src="@drawable/account_icon" />
+<!--    <com.mikhaellopez.circularimageview.CircularImageView-->
+<!--        android:layout_width="140dp"-->
+<!--        android:layout_height="140dp"-->
+<!--        android:src="@drawable/account_icon" />-->
 
     <TextView
         android:id="@+id/tv_nameAccount"
@@ -36,7 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="6dp"
-        android:background="F40202" />
+        android:background="#F40202" />
   </LinearLayout>
 
   <LinearLayout

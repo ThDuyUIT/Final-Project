@@ -43,12 +43,19 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.catego
 
         holder.textViewCategory.setText(category.getNameCategory());
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context, RecyclerView.HORIZONTAL, false);
-        holder.rcvChuyenXe.setLayoutManager(linearLayoutManager);
+        LinearLayoutManager linearLayoutManager1 = new LinearLayoutManager(context, RecyclerView.HORIZONTAL, false);
+        holder.rcvChuyenXe.setLayoutManager(linearLayoutManager1);
 
         ChuyenXeAdapter chuyenXeAdapter = new ChuyenXeAdapter();
         chuyenXeAdapter.setChuyenXeList(category.getChuyenXeList());
         holder.rcvChuyenXe.setAdapter(chuyenXeAdapter);
+
+        LinearLayoutManager linearLayoutManager2 = new LinearLayoutManager(context, RecyclerView.HORIZONTAL, false);
+        holder.rcvKhuyenMai.setLayoutManager(linearLayoutManager2);
+
+        KhuyenMaiAdapter khuyenMaiAdapter = new KhuyenMaiAdapter();
+        khuyenMaiAdapter.setKhuyenMaiList(category.getKhuyenMaiList());
+        holder.rcvKhuyenMai.setAdapter(khuyenMaiAdapter);
     }
 
     @Override
@@ -62,13 +69,15 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.catego
     public class categoryViewholder extends RecyclerView.ViewHolder {
 
         private TextView textViewCategory;
-        private RecyclerView rcvChuyenXe;
+        private RecyclerView rcvChuyenXe, rcvKhuyenMai;
 
         public categoryViewholder(@NonNull View itemView) {
             super(itemView);
 
-            textViewCategory = itemView.findViewById(R.id.texviewNameCategory);
-            rcvChuyenXe = itemView.findViewById(R.id.recycleviewCategory);
+            textViewCategory = itemView.findViewById(R.id.texviewNameCategory1);
+
+            rcvChuyenXe = itemView.findViewById(R.id.recycleviewCategory1);
+            rcvKhuyenMai = itemView.findViewById(R.id.recycleviewCategory2);
         }
     }
 }

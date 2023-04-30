@@ -13,6 +13,7 @@
         <activity android:name=".search.list_city_points.ChooseCityActivity" />
         <activity android:name=".authentication.RegisterActivity" />
         <activity android:name=".authentication.LoginActivity" />
+        <activity android:name=".search.ticket.ChooseTicketActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

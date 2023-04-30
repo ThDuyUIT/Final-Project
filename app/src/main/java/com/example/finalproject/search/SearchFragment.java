@@ -25,6 +25,7 @@ import com.example.finalproject.authentication.LoginActivity;
 import com.example.finalproject.authentication.RegisterActivity;
 import com.example.finalproject.search.calendar.ChooseDateActivity;
 import com.example.finalproject.search.list_city_points.ChooseCityActivity;
+import com.example.finalproject.search.ticket.ChooseTicketActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -143,6 +144,24 @@ public class SearchFragment extends Fragment{
                 //startActivity(intent);
             }
         });
+
+        btnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String startPoint = txtStartPoint.getText().toString();
+                String endPoint = txtEndPoint.getText().toString();
+                String date = txtDate.getText().toString();
+
+                Intent intent = new Intent(getActivity(), ChooseTicketActivity.class);
+
+                Bundle bundle = new Bundle();
+                bundle.putString("START", startPoint);
+                bundle.putString("END", endPoint);
+                bundle.putString("DATE", date);
+                intent.putExtra("searchTicketInfo", bundle);
+                startActivity(intent);
+            }
+        });
         return view;
     }
 
@@ -159,9 +178,15 @@ public class SearchFragment extends Fragment{
         chuyenXeList.add(new ChuyenXe(R.drawable.soc_trang, "Sóc Trăng", "120.000đ"));
         chuyenXeList.add(new ChuyenXe(R.drawable.hau_giang, "Hậu Giang", "120.000đ"));
 
+        List<KhuyenMai> khuyenMaiList = new ArrayList<>();
+        khuyenMaiList.add(new KhuyenMai(R.drawable.promotion_1, "Giới thiệu bạn bè nhận quà siêu lớn"));
+        khuyenMaiList.add(new KhuyenMai(R.drawable.promotion_2, "Giới thiệu bạn bè nhận quà siêu lớn"));
+        khuyenMaiList.add(new KhuyenMai(R.drawable.promotion_3, "Giới thiệu bạn bè nhận quà siêu lớn"));
+        khuyenMaiList.add(new KhuyenMai(R.drawable.promotion_4, "Giới thiệu bạn bè nhận quà siêu lớn"));
+
         List<Category> list = new ArrayList<>();
         list.add(new Category("Popular bus routes", chuyenXeList));
-        list.add(new Category("Promotions", chuyenXeList));
+        list.add(new Category(khuyenMaiList,"Promotions"));
         return list;
     }
 

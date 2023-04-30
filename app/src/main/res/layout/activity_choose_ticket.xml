@@ -37,7 +37,7 @@
                 android:textSize="@dimen/text_content_size"/>
 
             <TextView
-                android:id="@+id/textviewDepartureTime"
+                android:id="@+id/textviewDepartureDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="CN, 30/4/1975"

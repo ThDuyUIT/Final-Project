@@ -8,9 +8,9 @@
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
-        android:layout_height="675dp"
+        android:layout_height="wrap_content"
         android:layout_above="@+id/bottomNav"
-        android:layout_marginBottom="1dp"></androidx.viewpager2.widget.ViewPager2>
+        android:paddingBottom="@dimen/margin_base0.5"></androidx.viewpager2.widget.ViewPager2>
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

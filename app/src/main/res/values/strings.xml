@@ -31,4 +31,7 @@
 
     <string name="tex_confirm">Confirm</string>
 
+    <string name="text_login_required1"><b>Login required</b></string>
+    <string name="text_login_required2">Login in to see your booking history</string>
+
 </resources>

@@ -13,13 +13,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.finalproject.MainActivity;
 import com.example.finalproject.R;
+import com.example.finalproject.ViewPagerAdapter;
 
 public class LoginActivity extends AppCompatActivity {
 
-    EditText edtUserName,edtPass;
-    Button btnLogin;
-    TextView txtRegister;
+    private EditText edtUserName,edtPass;
+    private Button btnLogin;
+    private TextView txtRegister;
+    private boolean isLoggedIn = false;
+
 
     private ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
@@ -50,6 +54,24 @@ public class LoginActivity extends AppCompatActivity {
                 Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
                 //startActivity(intent);
                 activityResultLauncher.launch(intent);
+            }
+        });
+
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String username = edtUserName.getText().toString();
+                String pass = edtPass.getText().toString();
+
+                if(username.equals("demo") && pass.equals("demo")){
+                    isLoggedIn = true;
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    intent.putExtra("LOGGED_IN", isLoggedIn);
+                    startActivity(intent);
+
+                    finish();
+                }
             }
         });
     }

@@ -1,12 +1,14 @@
 package com.example.finalproject.search.ticket;
 
-public class Ticket {
+import java.io.Serializable;
+
+public class Ticket implements Serializable {
     private int resourceID;
     private String nameTicket;
     private String departureTime;
     private String priceTicket;
 
-    public Ticket(int resourceID, String nameTicket, String departureTime, String priceTicket) {
+    public Ticket (int resourceID, String nameTicket, String departureTime, String priceTicket) {
         this.resourceID = resourceID;
         this.nameTicket = nameTicket;
         this.departureTime = departureTime;

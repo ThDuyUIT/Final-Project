@@ -26,4 +26,12 @@
         <item name="android:textColor">@color/maincolor2</item>
     </style>
 
+    <style name="MyActionBar" parent="@style/Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/maincolor1</item>
+    </style>
+    <style name="bus_name">
+        <item name="android:textSize">@dimen/text_content_size</item>
+        <item name="android:textColor">@color/colorText_busName</item>
+
+    </style>
 </resources>

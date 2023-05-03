@@ -5,9 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:id="@+id/linearTicket"
-    android:padding="@dimen/margin_base0.5"
-    android:layout_marginBottom="@dimen/margin_base0.5"
-
+    android:minHeight="125dp"
+    android:layout_margin="@dimen/margin_base0.5"
     android:background="@drawable/boder_shape">
 
     <com.makeramen.roundedimageview.RoundedImageView
@@ -28,26 +27,29 @@
         <TextView
             android:id="@+id/nameTicket"
             style="@style/bus_name"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Giường nằm 40 chỗ (có toilet)"
-            android:layout_marginBottom="4dp"/>
+            android:layout_marginBottom="4dp"
+            android:text="Giường nằm 40 chỗ (có toilet)" />
 
         <TextView
             android:fontFamily="@font/calibri"
             android:id="@+id/departureTime"
             android:text="9:00 - 11:30"
+            android:textAlignment="textEnd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"/>
+            android:layout_margin="4dp"/>
 
         <TextView
-            android:fontFamily="@font/calibri"
-            style="@style/bus_name"
             android:id="@+id/priceTicket"
-            android:text="250.000VND"
+            style="@style/bus_name"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:fontFamily="@font/calibri"
+            android:text="250.000VND"
+            android:textAlignment="textEnd" />
 
     </LinearLayout>
 

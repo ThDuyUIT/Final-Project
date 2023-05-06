@@ -1,0 +1,353 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/background">
+
+    <LinearLayout
+        android:id="@+id/layoutHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:background="@color/maincolor1">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:id="@+id/backBefore"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back_icon"
+            android:padding="10dp"
+            app:tint="@color/maincolor2" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textviewRoute"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ho Chi Minh - Ca Mau"
+                android:textColor="@color/maincolor2"
+                android:textSize="@dimen/text_content_size"/>
+
+            <TextView
+                android:id="@+id/textviewDepartureDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CN, 30/4/1975"
+                android:textColor="@color/maincolor2"
+                android:textSize="@dimen/text_note_size"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:theme="@style/edt_view"
+            android:id="@+id/tv_title"
+            android:text="@string/text_ticket_information"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="@dimen/margin_base0.5"
+            android:layout_marginStart="@dimen/margin_base"
+            android:layout_marginLeft="@dimen/margin_base"
+            android:layout_marginEnd="@dimen/margin_base"
+            android:layout_marginRight="@dimen/margin_base"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/margin_base"
+                android:orientation="vertical">
+
+                <!-- Các phần tử giao diện cho bên trái ở đây -->
+                <TextView
+                    android:id="@+id/TicketRouteTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Route"/>
+                <TextView
+                    android:id="@+id/TicketTripTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Trip"/>
+                <TextView
+                    android:id="@+id/TicketTypeTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Bus type"/>
+                <TextView
+                    android:id="@+id/NumberTicketTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Number of tickets"/>
+                <TextView
+                    android:id="@+id/TotalPriceTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Total"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:theme="@style/ticket_inf"
+                android:layout_marginRight="@dimen/margin_base">
+
+
+            <!-- Các phần tử giao diện cho bên phải ở đây -->
+                <TextView
+                    android:id="@+id/TicketRouteInf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ho Chi Minh - Ca Mau"/>
+
+                <TextView
+                    android:id="@+id/TicketTripInf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="09:00 Sun, April 30, 1975"/>
+
+                <TextView
+                    android:id="@+id/BusTypeInf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Giường nằm 40 chô (WC)"/>
+
+                <TextView
+                    android:id="@+id/NumberTicketInf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="1"/>
+
+                <TextView
+                    android:id="@+id/TotalPriceInf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="699.000 VND"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:theme="@style/edt_view"
+            android:id="@+id/tv_title"
+            android:text="@string/passenger_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="@dimen/margin_base0.5"
+            android:layout_marginStart="@dimen/margin_base"
+            android:layout_marginLeft="@dimen/margin_base"
+            android:layout_marginEnd="@dimen/margin_base"
+            android:layout_marginRight="@dimen/margin_base"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginLeft="@dimen/margin_base"
+                >
+
+                <!-- Các phần tử giao diện cho bên trái ở đây -->
+                <TextView
+                    android:id="@+id/FullNameTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Full name"/>
+                <TextView
+                    android:id="@+id/PhoneNumberTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Phone number"/>
+                <TextView
+                    android:id="@+id/EmailTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Email address"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:theme="@style/ticket_inf"
+                android:layout_marginRight="@dimen/margin_base">
+
+                <!-- Các phần tử giao diện cho bên phải ở đây -->
+                <TextView
+                    android:id="@+id/FullNameInf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Lương Việt Hoàng"/>
+
+                <TextView
+                    android:id="@+id/PhoneNumberInf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="0123456789"/>
+
+                <TextView
+                    android:id="@+id/EmailInf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="demo@email.com"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:theme="@style/edt_view"
+            android:id="@+id/tv_title"
+            android:text="@string/payment_method_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="@dimen/margin_base0.5"
+            android:layout_marginStart="@dimen/margin_base"
+            android:layout_marginLeft="@dimen/margin_base"
+            android:layout_marginEnd="@dimen/margin_base"
+            android:layout_marginRight="@dimen/margin_base"/>
+
+        <!--            Danh sach phuong thuc thanh toan-->
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/margin_base0.5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/imageMomoPayment"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:padding="8dp"
+                android:src="@drawable/momo_payment"
+                app:riv_corner_radius="@dimen/basic_radius" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_base0.5">
+                <TextView
+                    android:theme="@style/edt_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="MoMo E-wallet"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="You must have application in your phone"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/margin_base0.5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/imageCardPayment"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:padding="8dp"
+                android:src="@drawable/credit_card"
+                app:riv_corner_radius="@dimen/basic_radius" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_base0.5">
+                <TextView
+                    android:theme="@style/edt_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Credit/Debit card"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Visa, Maste Card"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/margin_base0.5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/imageStorePayment"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:padding="8dp"
+                android:src="@drawable/store_payment"
+                app:riv_corner_radius="@dimen/basic_radius" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_base0.5">
+                <TextView
+                    android:theme="@style/edt_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="At stores or supermarkets"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Pay at convenient stores, Viettel post or supermarket"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+        <Button
+            android:paddingLeft="@dimen/margin_basex2"
+            android:paddingRight="@dimen/margin_basex2"
+            android:textColor="@color/maincolor2"
+            android:id="@+id/buttonSearchTickets"
+            android:layout_marginTop="@dimen/margin_base"
+            android:background="@drawable/button_shape"
+            android:textSize="@dimen/text_content_size"
+            android:text="Payment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+</LinearLayout>

@@ -40,7 +40,6 @@ public class ChooseTicketActivity extends AppCompatActivity{
     private ListView listView;
     private RecyclerView recyclerView;
     private TicketAdapter ticketAdapter;
-
     private ImageView btnBack;
     private TextView txtRoute, txtDate;
 
@@ -109,20 +108,20 @@ public class ChooseTicketActivity extends AppCompatActivity{
 
     private void setListTicket(){
         tickets = new ArrayList<>();
-        tickets.add(new Ticket(R.drawable.limousine21v1, "Giường nằm 30 chỗ có toilet", "9:00 - 11:30", "250.000VND"));
-        tickets.add(new Ticket(R.drawable.limousine21v1, "Giường nằm 40 chỗ có toilet", "9:00 - 11:30", "250.000VND"));
-        tickets.add(new Ticket(R.drawable.limousine21v1, "Giường nằm 40 chỗ có toilet", "9:00 - 11:30", "250.000VND"));
-        tickets.add(new Ticket(R.drawable.limousine21v1, "Giường nằm 40 chỗ có toilet", "9:00 - 11:30", "250.000VND"));
-        tickets.add(new Ticket(R.drawable.limousine21v1, "Giường nằm 40 chỗ có toilet", "9:00 - 11:30", "250.000VND"));
-        tickets.add(new Ticket(R.drawable.limousine21v1, "Giường nằm 40 chỗ có toilet", "9:00 - 11:30", "250.000VND"));
-        tickets.add(new Ticket(R.drawable.limousine21v1, "Giường nằm 40 chỗ có toilet", "9:00 - 11:30", "250.000VND"));
-        tickets.add(new Ticket(R.drawable.limousine21v1, "Giường nằm 40 chỗ có toilet", "9:00 - 11:30", "250.000VND"));
+        tickets.add(new Ticket(R.drawable.limousine21v1, "Giường nằm 40 chỗ (WC)","51A3-21212", "9:00 - 11:30", "250.000VND"));
+        tickets.add(new Ticket(R.drawable.limousine21v2, "Giường nằm 40 chỗ","52A2-21216", "9:00 - 11:30", "250.000VND"));
+        tickets.add(new Ticket(R.drawable.limousine21v3, "Giường nằm 40 chỗ (WC)","52A2-21216", "9:00 - 11:30", "250.000VND"));
+        tickets.add(new Ticket(R.drawable.limousine21v4, "Giường nằm 40 chỗ","52A2-21216", "9:00 - 11:30", "250.000VND"));
+        tickets.add(new Ticket(R.drawable.limousine21v5, "Giường nằm 40 chỗ","52A2-21216", "9:00 - 11:30", "250.000VND"));
+        tickets.add(new Ticket(R.drawable.limousine21v6, "Giường nằm 40 chỗ (WC)","52A2-21216", "9:00 - 11:30", "250.000VND"));
+        tickets.add(new Ticket(R.drawable.limousine21v3, "Giường nằm 40 chỗ","", "9:00 - 11:30", "250.000VND"));
+        tickets.add(new Ticket(R.drawable.limousine21v1, "Giường nằm 40 chỗ (WC)","52A2-21216", "9:00 - 11:30", "250.000VND"));
     }
 
     private void OnClickGotoChooseSeat(Ticket ticket) {
         Intent intent = new Intent(this, ChooseSeatActivity.class);
         Bundle bundle = new Bundle();
-        bundle.putSerializable("Ticket route / time / ", ticket);
+        bundle.putSerializable("My ticket", ticket);
         intent.putExtras(bundle);
         startActivity(intent);
     }

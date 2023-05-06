@@ -16,6 +16,7 @@ import com.example.finalproject.R;
 import com.example.finalproject.search.ticket.ticket_interface.IClickTicketListener;
 import com.makeramen.roundedimageview.RoundedImageView;
 
+import java.text.BreakIterator;
 import java.util.List;
 
 //public class TicketAdapter extends BaseAdapter {
@@ -103,6 +104,7 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ticketView
             return;
         }
 
+        holder.txtBusNumber.setText(ticket.getBusNumber());
         holder.rivTicket.setImageResource(ticket.getResourceID());
         holder.txtNameTicket.setText(ticket.getNameTicket());
         holder.txtDepartureTime.setText(ticket.getDepartureTime());
@@ -126,7 +128,7 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ticketView
     public class ticketViewHolder extends RecyclerView.ViewHolder {
 
         private RoundedImageView rivTicket;
-        private TextView txtNameTicket, txtDepartureTime, txtPriceTicket;
+        private TextView txtNameTicket, txtDepartureTime, txtPriceTicket, txtBusNumber;
 
         private LinearLayout layoutChooseTicket;
         public ticketViewHolder(@NonNull View itemView) {
@@ -135,6 +137,7 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ticketView
             layoutChooseTicket = itemView.findViewById(R.id.linearTicket);
             rivTicket = itemView.findViewById(R.id.imageTicket);
             txtNameTicket = itemView.findViewById(R.id.nameTicket);
+            txtBusNumber = itemView.findViewById(R.id.busNumber);
             txtDepartureTime = itemView.findViewById(R.id.departureTime);
             txtPriceTicket = itemView.findViewById(R.id.priceTicket);
         }

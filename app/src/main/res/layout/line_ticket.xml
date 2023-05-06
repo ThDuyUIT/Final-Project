@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:id="@+id/linearTicket"
-    android:minHeight="125dp"
-    android:layout_margin="@dimen/margin_base0.5"
+    android:minHeight="150dp"
+    android:layout_margin="@dimen/margin_base0.25"
     android:background="@drawable/boder_shape">
 
     <com.makeramen.roundedimageview.RoundedImageView
@@ -19,7 +19,6 @@
         />
     
     <LinearLayout
-        android:layout_marginTop="@dimen/margin_base0.5"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -29,8 +28,17 @@
             style="@style/bus_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
-            android:text="Giường nằm 40 chỗ (có toilet)" />
+            android:padding="@dimen/margin_base0.5"
+            android:text="Giường nằm 40 chỗ (WC)" />
+
+        <TextView
+            android:theme="@style/ticket_inf"
+            android:paddingLeft="@dimen/margin_base0.5"
+            android:id="@+id/busNumber"
+            android:text="61C2-18182"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"/>
 
         <TextView
             android:fontFamily="@font/calibri"

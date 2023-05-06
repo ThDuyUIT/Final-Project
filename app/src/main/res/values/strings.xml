@@ -15,6 +15,8 @@
     <string name="hint_confirmpass">input password again</string>
     <string name="button_register">Register</string>
     <string name="text_gotologin">Already have an account. <u>Sign in now</u></string>
+    <string name="hint_email_eTicket">Email to receive E-ticket</string>
+    <string name="hint_other">Other requests or contact information</string>
 
     <string name="text_search_icon">Search</string>
     <string name="text_ticket_icon">My ticket</string>
@@ -33,5 +35,10 @@
 
     <string name="text_login_required1"><b>Login required</b></string>
     <string name="text_login_required2">Login in to see your booking history</string>
+
+    //passenger, payment, ticket info title
+    <string name="passenger_details"><b>Passenger Details</b></string>
+    <string name="text_ticket_information"><b>Ticket information</b></string>
+    <string name="payment_method_title"><b>Payment methods</b></string>
 
 </resources>

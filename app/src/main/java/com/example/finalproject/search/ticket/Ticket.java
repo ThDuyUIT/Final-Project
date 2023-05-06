@@ -5,14 +5,16 @@ import java.io.Serializable;
 public class Ticket implements Serializable {
     private int resourceID;
     private String nameTicket;
+    private String busNumber;
     private String departureTime;
     private String priceTicket;
 
-    public Ticket (int resourceID, String nameTicket, String departureTime, String priceTicket) {
+    public Ticket (int resourceID, String nameTicket, String busNumber, String departureTime, String priceTicket) {
         this.resourceID = resourceID;
         this.nameTicket = nameTicket;
         this.departureTime = departureTime;
         this.priceTicket = priceTicket;
+        this.busNumber = busNumber;
     }
 
     public int getResourceID() {
@@ -29,6 +31,14 @@ public class Ticket implements Serializable {
 
     public void setNameTicket(String nameTicket) {
         this.nameTicket = nameTicket;
+    }
+
+    public String getBusNumber() {
+        return busNumber;
+    }
+
+    public void setBusNumber(String busNumber) {
+        this.busNumber = busNumber;
     }
 
     public String getDepartureTime() {

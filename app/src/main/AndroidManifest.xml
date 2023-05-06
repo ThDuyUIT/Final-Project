@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".search.ticket.ChooseSeatActivity"/>
+        <activity android:name=".search.ticket.CustomerInformationActivity"/>
+        <activity android:name=".search.ticket.PaymentActivity"/>
+        <activity android:name=".search.ticket.ChooseSeatActivity" />
         <activity android:name=".search.calendar.ChooseDateActivity" />
         <activity android:name=".search.list_city_points.ChooseCityActivity" />
         <activity android:name=".authentication.RegisterActivity" />

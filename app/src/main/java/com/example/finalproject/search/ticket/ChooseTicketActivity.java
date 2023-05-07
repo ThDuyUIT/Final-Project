@@ -23,6 +23,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finalproject.R;
+import com.example.finalproject.search.CustomerTicket;
 import com.example.finalproject.search.SearchFragment;
 import com.example.finalproject.search.list_city_points.ChooseCityActivity;
 import com.example.finalproject.search.list_city_points.City;
@@ -66,10 +67,13 @@ public class ChooseTicketActivity extends AppCompatActivity{
         mapping();
 
         //listView.setAdapter(ticketAdapter);
-
         Intent intent = getIntent();
         Bundle bundle = intent.getBundleExtra("searchTicketInfo");
-        txtRoute.setText(bundle.getString("START") + '-' + bundle.getString("END"));
+        if(bundle == null){
+            return;
+        }
+
+        txtRoute.setText(bundle.getString("START") + " - " + bundle.getString("END"));
         txtDate.setText(bundle.getString("DATE"));
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
@@ -119,9 +123,14 @@ public class ChooseTicketActivity extends AppCompatActivity{
     }
 
     private void OnClickGotoChooseSeat(Ticket ticket) {
+        String route = txtRoute.getText().toString();
+        String date = txtDate.getText().toString();
+
         Intent intent = new Intent(this, ChooseSeatActivity.class);
         Bundle bundle = new Bundle();
-        bundle.putSerializable("My ticket", ticket);
+        bundle.putString("ROUTE", route);
+        bundle.putString("DATE", date);
+        bundle.putSerializable("busInformation", ticket);
         intent.putExtras(bundle);
         startActivity(intent);
     }

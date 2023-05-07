@@ -16,10 +16,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.finalproject.R;
+import com.example.finalproject.search.CustomerTicket;
+
+import java.util.ArrayList;
 
 public class ChooseSeatActivity extends AppCompatActivity {
-    private TextView txtRoute, txtDate;
-    private ImageView rtnBack;
+    private TextView txtRoute, txtDate, txtNameTicket, txtBusNumber, txtTime, txtPrice, txtSeatChoose;
+    private ImageView rtnBack, imgBus;
     private ImageView[] seats = new ImageView[40];
     private Button btnContinue;
     @Override
@@ -33,16 +36,25 @@ public class ChooseSeatActivity extends AppCompatActivity {
             return;
         }
 
-        Ticket ticket = (Ticket) bundle.get("My ticket");
+        Ticket ticket = (Ticket) bundle.get("busInformation");
+
+        txtRoute.setText(bundle.getString("ROUTE"));
+        txtDate.setText(bundle.getString("DATE"));
+        imgBus.setImageResource(ticket.getResourceID());
+        txtNameTicket.setText(ticket.getNameTicket());
+        txtBusNumber.setText(ticket.getBusNumber());
+        txtPrice.setText(ticket.getDepartureTime());
+        txtPrice.setText(ticket.getPriceTicket());
         rtnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                onBackPressed();
             }
         });
 
         // BIến hình ảnh ghế đã được chọn
         Drawable booked = getResources().getDrawable(R.drawable.booked_img);
+        ArrayList<String> seatChoosed = new ArrayList<>();
         // Đăng ký OnClickListener cho từng View ghế
         for (int i = 0; i < seats.length; i++) {
             final int seatNumber = i;
@@ -51,17 +63,29 @@ public class ChooseSeatActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     // Biến hình ảnh ghế hiện tại
                     Drawable current = seats[seatNumber].getDrawable();
-                    Log.d("MyApp", current.toString());
                     // Kiểm tra xem ghế đã được chọn hay chưa
                     if (current != null && current.getConstantState().equals(booked.getConstantState())) {
                         Toast.makeText(getApplicationContext(), "Ghế đã được đặt", Toast.LENGTH_SHORT).show();
                     }
                     else {
+                        int remainder = seatNumber % 4;
                         // Đổi ảnh ghế khi được click
                         ImageView seat = (ImageView) v;
                         seat.setImageDrawable(null);
                         seat.setImageResource(R.drawable.your_seat_img);
                         // Lưu trạng thái ghế vào một mảng
+                        String output;
+                        if (remainder == 0) {
+                            output = (seatNumber / 4) + 1 + "A";
+                        } else if (remainder == 1) {
+                            output = (seatNumber / 4) + 1 + "B";
+                        } else if (remainder == 2) {
+                            output = (seatNumber / 4) + 1 + "A_up";
+                        } else {
+                            output = (seatNumber / 4) + 1 + "B_up";
+                        }
+                        seatChoosed.add(output);
+                        txtSeatChoose.setText(seatChoosed.toString().replace("[", "").replace("]", ""));
                     }
                 }
             });
@@ -71,17 +95,34 @@ public class ChooseSeatActivity extends AppCompatActivity {
         btnContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent;
-                intent = new Intent(ChooseSeatActivity.this, CustomerInformationActivity.class);
+
+                String route = txtRoute.getText().toString();
+                String date = txtDate.getText().toString();
+
+                Intent intent = new Intent(ChooseSeatActivity.this, CustomerInformationActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("ROUTE", route);
+                bundle.putString("DATE", date);
+                bundle.putSerializable("TicketMoreInformation", ticket);
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
         });
+
     }
     private void mapping(){
         txtRoute = (TextView) findViewById(R.id.textviewRoute);
         txtDate = (TextView) findViewById(R.id.textviewDepartureDate);
         rtnBack = (ImageView) findViewById(R.id.backBefore);
         btnContinue = findViewById(R.id.buttonNextCusinfo);
+        txtSeatChoose =findViewById(R.id.seatChoose);
+
+        // Vé xe
+        imgBus = findViewById(R.id.imageTicket);
+        txtNameTicket = findViewById(R.id.nameTicket);
+        txtBusNumber = findViewById(R.id.busNumber);
+        txtTime = findViewById(R.id.departureTime);
+        txtPrice = findViewById(R.id.priceTicket);
 
         // Lưu trữ tất cả các View ghế trong một mảng
         seats[0] = findViewById(R.id.seat_a1);
@@ -126,3 +167,4 @@ public class ChooseSeatActivity extends AppCompatActivity {
         seats[39] = findViewById(R.id.seat_b10_upstair);
     }
 }
+

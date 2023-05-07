@@ -3,6 +3,7 @@ package com.example.finalproject.search;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +28,7 @@ import com.example.finalproject.search.calendar.ChooseDateActivity;
 import com.example.finalproject.search.list_city_points.ChooseCityActivity;
 import com.example.finalproject.search.ticket.ChooseTicketActivity;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -161,6 +163,7 @@ public class SearchFragment extends Fragment{
                 intent.putExtra("searchTicketInfo", bundle);
                 startActivity(intent);
             }
+
         });
         return view;
     }

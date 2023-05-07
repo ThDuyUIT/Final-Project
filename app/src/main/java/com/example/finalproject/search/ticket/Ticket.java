@@ -56,4 +56,5 @@ public class Ticket implements Serializable {
     public void setPriceTicket(String priceTicket) {
         this.priceTicket = priceTicket;
     }
+
 }

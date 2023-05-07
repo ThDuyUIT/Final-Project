@@ -137,6 +137,7 @@
             android:theme="@style/edt_view" />
 
         <EditText
+            android:fontFamily="@font/calibri"
             android:id="@+id/editTextName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -145,13 +146,13 @@
             android:layout_marginTop="@dimen/margin_base"
             android:layout_marginEnd="@dimen/margin_base"
             android:layout_marginRight="@dimen/margin_base"
-            android:background="@drawable/edittext_shape"
             android:drawableLeft="@drawable/user_icon"
             android:hint="@string/hint_name"
             android:inputType="textPersonName"
             android:theme="@style/edt_view" />
 
         <EditText
+            android:fontFamily="@font/calibri"
             android:id="@+id/editTextPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -160,7 +161,6 @@
             android:layout_marginTop="@dimen/margin_base"
             android:layout_marginEnd="@dimen/margin_base"
             android:layout_marginRight="@dimen/margin_base"
-            android:background="@drawable/edittext_shape"
             android:drawableLeft="@drawable/phone_contact_icon"
             android:ems="10"
             android:hint="@string/hint_phonenumbers"
@@ -168,6 +168,7 @@
             android:theme="@style/edt_view" />
 
         <EditText
+            android:fontFamily="@font/calibri"
             android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -176,13 +177,13 @@
             android:layout_marginTop="@dimen/margin_base"
             android:layout_marginEnd="@dimen/margin_base"
             android:layout_marginRight="@dimen/margin_base"
-            android:background="@drawable/edittext_shape"
             android:drawableLeft="@drawable/email_icon"
             android:hint="@string/hint_email_eTicket"
             android:inputType="textEmailAddress"
             android:theme="@style/edt_view" />
 
         <EditText
+            android:fontFamily="@font/calibri"
             android:id="@+id/editTextOtherRequest"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -191,18 +192,17 @@
             android:layout_marginTop="@dimen/margin_base"
             android:layout_marginEnd="@dimen/margin_base"
             android:layout_marginRight="@dimen/margin_base"
-            android:background="@drawable/edittext_shape"
             android:drawableLeft="@drawable/question_answer_icon"
             android:hint="@string/hint_other"
             android:inputType="textMultiLine"
             android:maxLines="5"
-            android:minHeight="125dp"
             android:minLines="1"
 
             android:theme="@style/edt_view" />
     </LinearLayout>
 
     <RelativeLayout
+        android:background="@drawable/shadow_button"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:gravity="center"

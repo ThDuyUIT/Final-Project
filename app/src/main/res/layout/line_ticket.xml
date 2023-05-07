@@ -5,9 +5,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:id="@+id/linearTicket"
-    android:minHeight="150dp"
-    android:layout_margin="@dimen/margin_base0.25"
-    android:background="@drawable/boder_shape">
+    android:layout_marginBottom="@dimen/margin_base0.25"
+    android:minHeight="160dp"
+    android:background="@drawable/ticket_background">
 
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/imageTicket"

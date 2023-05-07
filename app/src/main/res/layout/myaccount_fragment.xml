@@ -1,175 +1,326 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/background">
+    android:background="@drawable/background"
+    tools:context=".MainActivity"
+    android:id="@+id/fragment_container_myaccount">
 
-  <include layout="@layout/toolbar_myaccount"/>
+  <include
+      android:id="@+id/include"
+      layout="@layout/toolbar_myaccount"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="1.0"
+      app:layout_constraintStart_toStartOf="parent"
+      tools:layout_editor_absoluteY="-68dp" />
+
+  <LinearLayout
+      android:id="@+id/linearLayout6"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      android:layout_marginTop="60dp"
+      android:layout_marginEnd="8dp"
+      android:orientation="horizontal"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="@+id/include">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+      <com.mikhaellopez.circularimageview.CircularImageView
+          android:id="@+id/iv_avatar"
+          android:layout_width="80dp"
+          android:layout_height="80dp"
+          android:src="@drawable/account_icon" />
+
+      <ImageView
+          android:id="@+id/iv_editProfile"
+          android:layout_width="80dp"
+          android:layout_height="40dp"
+          android:src="@drawable/edit_icon_"
+          android:layout_marginLeft="7dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+      <LinearLayout
+          android:id="@+id/linearLayout5"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+
+          android:layout_marginStart="8dp"
+          android:layout_marginTop="16dp"
+          android:layout_marginEnd="8dp"
+          android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_PersonIcon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/person_icon" />
+
+        <TextView
+            android:id="@+id/tv_NamePersonAcount"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:text="Trấn Thành Riêng Tư"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+      </LinearLayout>
+
+      <LinearLayout
+          android:id="@+id/linearLayout"
+          android:layout_width="match_parent"
+          android:layout_height="42dp"
+
+          android:layout_marginStart="8dp"
+          android:layout_marginTop="16dp"
+          android:layout_marginEnd="8dp"
+          android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_PhoneNumber"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/phone_icon" />
+
+        <TextView
+            android:id="@+id/tv_PhoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:text="09050508"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+      </LinearLayout>
+
+      <LinearLayout
+          android:id="@+id/linearLayout4"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+
+          android:layout_marginStart="8dp"
+          android:layout_marginTop="16dp"
+          android:layout_marginEnd="8dp"
+          android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_MailIcon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/mail_icon" />
+
+        <TextView
+            android:id="@+id/tv_NamePersonAcount"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:text="thanhcry@gmail.com"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+      </LinearLayout>
+
+    </LinearLayout>
+
+    <!--    <LinearLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:orientation="vertical"></LinearLayout>-->
+  </LinearLayout>
 
   <LinearLayout
       android:layout_width="match_parent"
-      android:layout_height="220dp"
-      android:gravity="center"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      android:layout_marginTop="24dp"
+      android:layout_marginEnd="8dp"
       android:orientation="vertical"
-      tools:ignore="MissingConstraints"
-      tools:layout_editor_absoluteX="0dp"
-      tools:layout_editor_absoluteY="61dp">
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
 
-<!--    <com.mikhaellopez.circularimageview.CircularImageView-->
-<!--        android:layout_width="140dp"-->
-<!--        android:layout_height="140dp"-->
-<!--        android:src="@drawable/account_icon" />-->
-
-    <TextView
-        android:id="@+id/tv_nameAccount"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/ln_Setting"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Hello Android"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:orientation="horizontal">
+
+      <ImageView
+          android:id="@+id/iv_setting"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="16dp"
+          android:layout_marginRight="16dp"
+          app:srcCompat="@drawable/sitting"
+          android:layout_marginTop="5dp"
+          />
+
+      <TextView
+          android:id="@+id/tv_setting"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="16dp"
+          android:text="Setting"
+          android:textSize="22sp"
+          android:textStyle="bold"
+          android:layout_marginLeft="20dp"/>
+    </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="6dp"
-        android:background="#F40202" />
+        android:layout_marginTop="8dp"
+        android:background="#353C3C"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+      <ImageView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="16dp"
+          android:layout_marginRight="16dp"
+          android:src="@drawable/support_agent" />
+
+      <TextView
+          android:id="@+id/tv_helpcenter"
+          android:layout_width="match_parent"
+          android:layout_height="42dp"
+          android:text="Help Center"
+          android:textSize="20sp"
+          android:textStyle="bold"
+          android:layout_marginLeft="20dp"
+          android:layout_marginTop="16dp"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:background="#353C3C"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+      <ImageView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="16dp"
+          android:layout_marginRight="16dp"
+          android:src="@drawable/starvalue"
+          android:layout_marginTop="5dp"/>
+
+      <TextView
+          android:id="@+id/tv_myreview"
+          android:layout_width="match_parent"
+          android:layout_height="42dp"
+          android:text="My Review"
+          android:textSize="20sp"
+          android:textStyle="bold"
+          android:layout_marginTop="16dp"
+          android:layout_marginLeft="20dp"/>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:background="#353C3C"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+      <ImageView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="16dp"
+          android:layout_marginRight="16dp"
+          android:src="@drawable/feedback"
+          android:layout_marginTop="5dp"/>
+
+      <TextView
+          android:id="@+id/tv_feedback"
+          android:layout_width="match_parent"
+          android:layout_height="42dp"
+          android:text="Feedback"
+          android:textSize="20sp"
+          android:textStyle="bold"
+          android:layout_marginTop="16dp"
+          android:layout_marginLeft="20dp"/>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:background="#353C3C"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+      <ImageView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="16dp"
+          android:layout_marginRight="16dp"
+          android:src="@drawable/logout"
+          android:layout_marginTop="5dp"/>
+
+      <TextView
+          android:id="@+id/tv_logout"
+          android:layout_width="match_parent"
+          android:layout_height="42dp"
+          android:text="Log Out"
+          android:textColor="#F30606"
+          android:textSize="20sp"
+          android:textStyle="bold"
+          android:layout_marginLeft="20dp"
+          android:layout_marginTop="16dp"/>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#353C3C"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp" />
   </LinearLayout>
-
-  <LinearLayout
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:orientation="horizontal"
-      tools:ignore="MissingConstraints"
-      tools:layout_editor_absoluteX="0dp"
-      tools:layout_editor_absoluteY="281dp">
-
-    <ImageView
-        android:layout_marginLeft="16dp"
-        android:id="@+id/iv_PersonIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/person_icon" />
-
-    <TextView
-        android:id="@+id/tv_NameUser"
-        android:layout_width="70dp"
-        android:layout_height="48dp"
-        android:layout_marginLeft="16dp"
-        android:gravity="center"
-        android:text="FullName "
-        android:textColor="#000000"
-        android:textSize="16sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/tv_NamePersonAcount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Trấn Thành Riêng Tư"
-        android:textAlignment="center"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"/>
-
-  </LinearLayout>
-
-  <LinearLayout
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:orientation="horizontal"
-      tools:ignore="MissingConstraints"
-      tools:layout_editor_absoluteX="0dp"
-      tools:layout_editor_absoluteY="342dp"
-      android:layout_marginTop="10dp">
-
-    <ImageView
-        android:id="@+id/iv_MailIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:src="@drawable/mail_icon" />
-
-    <TextView
-        android:id="@+id/tv_Email"
-        android:layout_width="70dp"
-        android:layout_height="48dp"
-        android:layout_marginLeft="16dp"
-        android:gravity="center"
-        android:text="Email "
-        android:textColor="#000000"
-        android:textSize="16sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/tv_NamePersonAcount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:gravity="center"
-        android:text="thanhcry@gmail.com"
-        android:textAlignment="center"
-        android:textSize="16sp"
-        android:textStyle="bold" />
-
-  </LinearLayout>
-
-  <LinearLayout
-      android:id="@+id/linearLayout"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:orientation="horizontal"
-      tools:ignore="MissingConstraints"
-      tools:layout_editor_absoluteX="0dp"
-      tools:layout_editor_absoluteY="410dp">
-
-    <ImageView
-        android:id="@+id/iv_PhoneNumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:src="@drawable/phone_icon" />
-
-    <TextView
-        android:id="@+id/tv_Phone"
-        android:layout_width="70dp"
-        android:layout_height="48dp"
-        android:layout_marginLeft="16dp"
-        android:gravity="center"
-        android:text="Phone"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/tv_PhoneNumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:gravity="center"
-        android:text="09050508"
-        android:textAlignment="center"
-        android:textSize="16sp"
-        android:textStyle="bold" />
-
-  </LinearLayout>
-
-  <Button
-      android:id="@+id/btn_EditUser"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="22dp"
-      android:background="@drawable/normalbutton_shape"
-      android:text="Edit"
-      android:textSize="16sp"
-      app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-      tools:ignore="MissingConstraints"
-      tools:layout_editor_absoluteX="166dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

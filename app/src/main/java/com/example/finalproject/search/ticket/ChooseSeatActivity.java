@@ -43,7 +43,7 @@ public class ChooseSeatActivity extends AppCompatActivity {
         imgBus.setImageResource(ticket.getResourceID());
         txtNameTicket.setText(ticket.getNameTicket());
         txtBusNumber.setText(ticket.getBusNumber());
-        txtPrice.setText(ticket.getDepartureTime());
+        txtTime.setText(ticket.getDepartureTime());
         txtPrice.setText(ticket.getPriceTicket());
         rtnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,9 +80,9 @@ public class ChooseSeatActivity extends AppCompatActivity {
                         } else if (remainder == 1) {
                             output = (seatNumber / 4) + 1 + "B";
                         } else if (remainder == 2) {
-                            output = (seatNumber / 4) + 1 + "A_up";
+                            output = (seatNumber / 4) + 1 + "A upstairs";
                         } else {
-                            output = (seatNumber / 4) + 1 + "B_up";
+                            output = (seatNumber / 4) + 1 + "B upstairs";
                         }
                         seatChoosed.add(output);
                         txtSeatChoose.setText(seatChoosed.toString().replace("[", "").replace("]", ""));
@@ -95,14 +95,15 @@ public class ChooseSeatActivity extends AppCompatActivity {
         btnContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String route = txtRoute.getText().toString();
                 String date = txtDate.getText().toString();
+                String seat = txtSeatChoose.getText().toString();
 
                 Intent intent = new Intent(ChooseSeatActivity.this, CustomerInformationActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("ROUTE", route);
                 bundle.putString("DATE", date);
+                bundle.putString("SEAT", seat);
                 bundle.putSerializable("TicketMoreInformation", ticket);
                 intent.putExtras(bundle);
                 startActivity(intent);

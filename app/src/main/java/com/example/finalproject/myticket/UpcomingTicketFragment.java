@@ -70,8 +70,8 @@ public class UpcomingTicketFragment extends Fragment {
 
     private void setListTicket(){
         tickets = new ArrayList<>();
-        tickets.add(new Ticket(R.drawable.limousine21v1, "Vinh Long - Ho Chi Minh", "Giường nằm 40 chỗ có toilet" + '\n' + "(Vinh Long - Ho Chi Minh)", "51A3-21212","9:00 - 11:30 30/04/2023", "30/04/2023", "A3", "250.000VND", "Lương Việt Hoàng", "1234567890","hoang@gmail.com"));
-        tickets.add(new Ticket(R.drawable.limousine21v1, "Vinh Long - Ho Chi Minh", "Giường nằm 40 chỗ có toilet" + '\n' + "(Vinh Long - Ho Chi Minh)", "51A3-21212","9:00 - 11:30 30/04/2023", "30/04/2023", "A3", "250.000VND", "Lương Việt Hoàng", "1234567890","hoang@gmail.com"));
+        tickets.add(new Ticket(R.drawable.limousine21v1, "Vinh Long - Ho Chi Minh", "Giường nằm 40 chỗ có toilet", "51A3-21212","9:00 - 11:30", "30/04/2023", "A3", "250.000VND", "Lương Việt Hoàng", "1234567890","hoang@gmail.com"));
+        tickets.add(new Ticket(R.drawable.limousine21v1, "Vinh Long - Ho Chi Minh", "Giường nằm 40 chỗ có toilet", "51A3-21212","9:00 - 11:30", "30/04/2023", "A3", "250.000VND", "Lương Việt Hoàng", "1234567890","hoang@gmail.com"));
     }
 
     private void OnClickGotoDetailBookedTicket(Ticket ticket){

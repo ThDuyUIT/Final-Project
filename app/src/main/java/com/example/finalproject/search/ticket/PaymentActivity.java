@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,8 +34,8 @@ public class PaymentActivity extends AppCompatActivity {
 
         Boolean isFromMyTicket = bundle.getBoolean("from my ticket", false);
         if (isFromMyTicket){
-            Button btn = (Button) findViewById(R.id.buttonConfirmInfo);
-            btn.setVisibility(View.VISIBLE);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.relativeContainButton);
+            relativeLayout.setVisibility(View.GONE);
         }
 
         Ticket ticket = (Ticket) bundle.get("CustomerTicket");

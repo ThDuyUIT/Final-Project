@@ -395,7 +395,8 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/relativeContainButton">
 
         <TextView
             android:id="@+id/seatChoose"
@@ -406,6 +407,7 @@
             android:layout_height="wrap_content"/>
 
         <LinearLayout
+            android:id="@+id/linearContainButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"

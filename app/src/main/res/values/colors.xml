@@ -9,5 +9,10 @@
     <color name="bg_nav">#EFEFEF</color>
     <color name="focussedbutton">#EAEAEA</color>
 
+    <color name="background">#EFEFEF</color>
+    //textIcons
+    <color name="colorTextIcons">#FFFFFF</color>
 
+    //textColors
+    <color name="colorText_busName">#000</color>
 </resources>

@@ -1,6 +1,8 @@
 package com.example.finalproject.search;
 
-public class ChuyenXe {
+import java.io.Serializable;
+
+public class ChuyenXe implements Serializable {
     private int resourceImg;
     private String title;
     private String price;

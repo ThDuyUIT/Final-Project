@@ -1,6 +1,8 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+
+
         <!-- Customize your theme here. -->
         <item name="colorPrimary">#C079ED</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -24,4 +26,18 @@
         <item name="android:textColor">@color/maincolor2</item>
     </style>
 
+    <style name="MyActionBar" parent="@style/Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/maincolor1</item>
+    </style>
+
+    <style name="bus_name">
+        <item name="android:textSize">@dimen/text_content_size</item>
+        <item name="android:textColor">@color/colorText_busName</item>
+    </style>
+
+    <style name="ticket_inf">
+        <item name="android:textColor">@color/colorText_busName</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">textEnd</item>
+    </style>
 </resources>

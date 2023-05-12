@@ -2,11 +2,14 @@ package com.example.finalproject.search.list_city_points;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -20,6 +23,7 @@ public class ChooseCityActivity extends AppCompatActivity {
     private ListView listView;
     private CityAdapter cityAdapter;
     private TextView txtTitle;
+    private ImageView btnBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,11 +53,22 @@ public class ChooseCityActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Context context = v.getContext();
+                if (context instanceof Activity) {
+                    ((Activity) context).finish();
+                }
+            }
+        });
     }
 
     private void mapping(){
         getListCities();
 
+        btnBack = (ImageView) findViewById(R.id.backBefore);
         txtTitle = (TextView) findViewById(R.id.textviewTitlePoint);
         listView = (ListView) findViewById(R.id.listviewCity);
         cityAdapter = new CityAdapter(ChooseCityActivity.this, R.layout.line_name_city, cityList);

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cardviewItem"
     android:layout_width="@dimen/width_cardview"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -13,7 +14,7 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="@dimen/heigh_imgCardview"
+            android:layout_height="@dimen/height_imgCardview"
             android:scaleType="centerCrop"
             android:src="@drawable/vinh_long"
             android:id="@+id/imageviewChuyenXe"/>

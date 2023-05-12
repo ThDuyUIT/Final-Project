@@ -1,0 +1,21 @@
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<selector xmlns:android="http://schemas.android.com/apk/res/android">-->
+<!--    <item>-->
+<!--        <shape android:shape="rectangle">-->
+<!--            <size android:height="45dp"/>-->
+<!--            <solid android:color="#EDE7F6"/>-->
+<!--            <corners android:radius="@dimen/basic_radius"/>-->
+<!--            <stroke android:color="#BCBCBC"/>-->
+<!--        </shape>-->
+<!--    </item>-->
+<!--</selector>-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+<stroke
+    android:width="2dp"
+    android:color="#DDDDDD" /> <!-- Màu và độ rộng viền, ví dụ: màu nhẹ gần với màu trắng -->
+<corners android:radius="12dp" /> <!-- Bo góc cho hiệu ứng tròn -->
+<padding
+    android:left="4dp"
+    android:top="4dp"
+    android:right="4dp" /> <!-- Khoảng cách giữa hiệu ứng và nội dung bên trong -->
+</shape>

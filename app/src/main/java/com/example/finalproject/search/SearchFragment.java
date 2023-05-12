@@ -1,13 +1,13 @@
 package com.example.finalproject.search;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
@@ -19,12 +19,11 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.finalproject.MainActivity;
 import com.example.finalproject.R;
 import com.example.finalproject.authentication.LoginActivity;
-import com.example.finalproject.authentication.RegisterActivity;
 import com.example.finalproject.search.calendar.ChooseDateActivity;
 import com.example.finalproject.search.list_city_points.ChooseCityActivity;
+import com.example.finalproject.search.ticket.ChooseTicketActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -32,7 +31,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
-import static com.example.finalproject.search.list_city_points.ChooseCityActivity.*;
+import static com.example.finalproject.search.list_city_points.ChooseCityActivity.RESULT_OK;
 
 public class SearchFragment extends Fragment{
 
@@ -143,25 +142,65 @@ public class SearchFragment extends Fragment{
                 //startActivity(intent);
             }
         });
+
+        btnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String startPoint = txtStartPoint.getText().toString();
+                String endPoint = txtEndPoint.getText().toString();
+                String date = txtDate.getText().toString();
+
+                if(startPoint.isEmpty() ){
+                    Toast.makeText(getContext(), "Please choose start point.", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                if(endPoint.isEmpty() ){
+                    Toast.makeText(getContext(), "Please choose end point.", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                if(date.isEmpty() ){
+                    Toast.makeText(getContext(), "Please choose departure date.", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                Intent intent = new Intent(getActivity(), ChooseTicketActivity.class);
+
+                Bundle bundle = new Bundle();
+                bundle.putString("START", startPoint);
+                bundle.putString("END", endPoint);
+                bundle.putString("DATE", date);
+                intent.putExtra("searchTicketInfo", bundle);
+                startActivity(intent);
+            }
+
+        });
         return view;
     }
 
     private List<Category> getListCategory(){
 
         List<ChuyenXe> chuyenXeList = new ArrayList<>();
-        chuyenXeList.add(new ChuyenXe(R.drawable.vinh_long, "Vĩnh Long", "120.000đ"));
-        chuyenXeList.add(new ChuyenXe(R.drawable.ca_mau, "Cà Mau", "120.000đ"));
-        chuyenXeList.add(new ChuyenXe(R.drawable.soc_trang, "Sóc Trăng", "120.000đ"));
-        chuyenXeList.add(new ChuyenXe(R.drawable.hau_giang, "Hậu Giang", "120.000đ"));
+        chuyenXeList.add(new ChuyenXe(R.drawable.vinh_long, "TP Hồ Chí Minh - Vĩnh Long", "120.000đ"));
+        chuyenXeList.add(new ChuyenXe(R.drawable.ca_mau, "Vĩnh Long - Cà Mau", "120.000đ"));
+        chuyenXeList.add(new ChuyenXe(R.drawable.soc_trang, "Cà Mau - Sóc Trăng", "120.000đ"));
+        chuyenXeList.add(new ChuyenXe(R.drawable.hau_giang, "Sóc Trăng - Hậu Giang", "120.000đ"));
 
-        chuyenXeList.add(new ChuyenXe(R.drawable.vinh_long, "Vĩnh Long", "120.000đ"));
-        chuyenXeList.add(new ChuyenXe(R.drawable.ca_mau, "Cà Mau", "120.000đ"));
-        chuyenXeList.add(new ChuyenXe(R.drawable.soc_trang, "Sóc Trăng", "120.000đ"));
-        chuyenXeList.add(new ChuyenXe(R.drawable.hau_giang, "Hậu Giang", "120.000đ"));
+        chuyenXeList.add(new ChuyenXe(R.drawable.vinh_long, "TP Hồ Chí Minh - Vĩnh Long", "120.000đ"));
+        chuyenXeList.add(new ChuyenXe(R.drawable.ca_mau, "Vĩnh Long - Cà Mau", "120.000đ"));
+        chuyenXeList.add(new ChuyenXe(R.drawable.soc_trang, "Cà Mau - Sóc Trăng", "120.000đ"));
+        chuyenXeList.add(new ChuyenXe(R.drawable.hau_giang, "Sóc Trăng - Hậu Giang", "120.000đ"));
+
+        List<KhuyenMai> khuyenMaiList = new ArrayList<>();
+        khuyenMaiList.add(new KhuyenMai(R.drawable.promotion_1, "Giới thiệu bạn bè nhận quà siêu lớn"));
+        khuyenMaiList.add(new KhuyenMai(R.drawable.promotion_2, "Giới thiệu bạn bè nhận quà siêu lớn"));
+        khuyenMaiList.add(new KhuyenMai(R.drawable.promotion_3, "Giới thiệu bạn bè nhận quà siêu lớn"));
+        khuyenMaiList.add(new KhuyenMai(R.drawable.promotion_4, "Giới thiệu bạn bè nhận quà siêu lớn"));
 
         List<Category> list = new ArrayList<>();
         list.add(new Category("Popular bus routes", chuyenXeList));
-        list.add(new Category("Promotions", chuyenXeList));
+        list.add(new Category(khuyenMaiList,"Promotions"));
         return list;
     }
 

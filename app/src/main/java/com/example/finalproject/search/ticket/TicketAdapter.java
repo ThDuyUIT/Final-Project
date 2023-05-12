@@ -1,21 +1,16 @@
 package com.example.finalproject.search.ticket;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finalproject.R;
-
-
+import com.example.finalproject.search.ticket.ticket_interface.IClickTicketListener;
 import com.makeramen.roundedimageview.RoundedImageView;
 
 import java.util.List;
@@ -85,9 +80,11 @@ import java.util.List;
 
 public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ticketViewHolder>{
     private List<Ticket> ticketList;
+    private IClickTicketListener iClickTicketListener;
 
-    public TicketAdapter(List<Ticket> ticketList) {
+    public TicketAdapter(List<Ticket> ticketList, IClickTicketListener listener) {
         this.ticketList = ticketList;
+        this.iClickTicketListener = listener;
     }
 
     @NonNull
@@ -108,6 +105,12 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ticketView
         holder.txtNameTicket.setText(ticket.getNameTicket());
         holder.txtDepartureTime.setText(ticket.getDepartureTime());
         holder.txtPriceTicket.setText(ticket.getPriceTicket());
+        holder.layoutChooseTicket.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                iClickTicketListener.onClickTicketListener(ticket);
+            }
+        });
     }
 
     @Override
@@ -121,13 +124,16 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ticketView
     public class ticketViewHolder extends RecyclerView.ViewHolder {
 
         private RoundedImageView rivTicket;
-        private TextView txtNameTicket, txtDepartureTime, txtPriceTicket;
+        private TextView txtNameTicket, txtDepartureTime, txtPriceTicket, txtBusNumber;
+        private LinearLayout layoutChooseTicket;
 
         public ticketViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            layoutChooseTicket = itemView.findViewById(R.id.linearTicket);
             rivTicket = itemView.findViewById(R.id.imageTicket);
             txtNameTicket = itemView.findViewById(R.id.nameTicket);
+            txtBusNumber = itemView.findViewById(R.id.busNumber);
             txtDepartureTime = itemView.findViewById(R.id.departureTime);
             txtPriceTicket = itemView.findViewById(R.id.priceTicket);
         }

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:id="@+id/linearTicket"
-    android:padding="@dimen/margin_base0.5"
-    android:layout_marginBottom="@dimen/margin_base0.5"
-    android:background="@color/maincolor2">
+    android:layout_marginBottom="@dimen/margin_base0.25"
+    android:minHeight="160dp"
+    android:background="@drawable/ticket_background">
 
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/imageTicket"
@@ -15,34 +15,49 @@
         android:layout_height="@dimen/height_img_ticket"
         app:riv_corner_radius="@dimen/basic_radius"
         android:src="@drawable/limousine21v1"
+        android:padding="8dp"
         />
-    
+
     <LinearLayout
-        android:layout_marginLeft="@dimen/margin_base0.5"
-        android:layout_marginTop="@dimen/margin_base0.5"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/nameTicket"
-            style="@style/edt_view"
-            android:text="Giường nằm 40 chỗ có toilet"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            style="@style/bus_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_base0.5"
+            android:text="Giường nằm 40 chỗ (WC)" />
 
         <TextView
+            android:theme="@style/ticket_inf"
+            android:paddingLeft="@dimen/margin_base0.5"
+            android:id="@+id/busNumber"
+            android:text="61C2-18182"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"/>
+
+        <TextView
+            android:fontFamily="@font/calibri"
             android:id="@+id/departureTime"
             android:text="9:00 - 11:30"
+            android:textAlignment="textEnd"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"/>
 
         <TextView
-            style="@style/edt_view"
             android:id="@+id/priceTicket"
-            android:text="250.000VND"
+            style="@style/bus_name"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:fontFamily="@font/calibri"
+            android:text="250.000VND"
+            android:textAlignment="textEnd" />
 
     </LinearLayout>
 

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "312253214276",
+    "project_id": "booking-transition",
+    "storage_bucket": "booking-transition.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:312253214276:android:0426593ae2e4834a09d611",
+        "android_client_info": {
+          "package_name": "com.example.finalproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "312253214276-7oc8lv03u1nsema4pln1u02l8pkqkl23.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBF2haJsByirDF-bHH5IvrU4QO-xFO-tOQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "312253214276-7oc8lv03u1nsema4pln1u02l8pkqkl23.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/texviewNameCategory"
+        android:id="@+id/texviewNameCategory1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/text_content_size"
@@ -16,7 +16,11 @@
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/recycleviewCategory"
+        android:id="@+id/recycleviewCategory1"
         android:layout_marginTop="@dimen/margin_base"/>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/recycleviewCategory2"/>
 </LinearLayout>

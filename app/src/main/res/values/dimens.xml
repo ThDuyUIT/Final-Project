@@ -3,13 +3,17 @@
     <dimen name="margin_base">20dp</dimen>
     <dimen name="margin_basex2">40dp</dimen>
     <dimen name="margin_base0.5">10dp</dimen>
+    <dimen name="margin_base0.25">5dp</dimen>
     <dimen name="text_content_size">20sp</dimen>
     <dimen name="text_title_size">40sp</dimen>
     <dimen name="text_note_size">17sp</dimen>
     <dimen name="drawble_pading">5dp</dimen>
     <dimen name="basic_radius">8dp</dimen>
     <dimen name="width_cardview">150dp</dimen>
-    <dimen name="heigh_imgCardview">170dp</dimen>
+    <dimen name="width_big_cardview">270dp</dimen>
+    <dimen name="height_imgCardview">170dp</dimen>
     <dimen name="distance_text_img">10dp</dimen>
-    <dimen name="text_margin">16dp</dimen>
+
+    <dimen name="width_img_ticket">150dp</dimen>
+    <dimen name="height_img_ticket">110dp</dimen>
 </resources>

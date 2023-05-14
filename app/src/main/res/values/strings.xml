@@ -45,4 +45,21 @@
     <string name="passenger_details"><b>Passenger Details</b></string>
     <string name="text_ticket_information"><b>Ticket information</b></string>
     <string name="payment_method_title"><b>Payment methods</b></string>
+
+    <string name="text_member">Member</string>
+    <string name="text_edit"><u>Edit</u></string>
+    <string name="text_full_name">Full name:</string>
+    <string name="text_gender">Gender:</string>
+    <string name="text_email">Email:</string>
+    <string name="text_phone">Phone:</string>
+
+    <string name="text_help">Help Center</string>
+    <string name="text_feedback">Share feedback</string>
+    <string name="text_logout">Log out</string>
+    <string name="text_account_info">Account Information</string>
+
+    <string name="text_Male">Male</string>
+    <string name="text_Female">Female</string>
+    <string name="text_Other">Other</string>
+    <string name="text_Save">Save</string>
 </resources>

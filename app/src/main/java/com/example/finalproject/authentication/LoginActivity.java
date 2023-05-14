@@ -66,11 +66,12 @@ public class LoginActivity extends AppCompatActivity {
                 String username = edtUserName.getText().toString();
                 String pass = edtPass.getText().toString();
 
-                if(username.equals("demo") && pass.equals("demo")){
+                if(username.equals("demo@gmail.com") && pass.equals("demo")){
                     isLoggedIn = true;
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     intent.putExtra("LOGGED_IN", isLoggedIn);
+                    intent.putExtra("USER_NAME", username);
                     startActivity(intent);
 
                     finish();

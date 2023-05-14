@@ -15,12 +15,17 @@ import com.example.finalproject.search.SearchFragment;
 public class ViewPagerAdapter extends FragmentStateAdapter {
 
     private boolean isLoggedIn;
+    private String userName = "";
 
     public ViewPagerAdapter(@NonNull FragmentActivity fragmentActivity)
     {
         super(fragmentActivity);
         Intent intent = fragmentActivity.getIntent();
+//        Bundle bundle = intent.getBundleExtra("from loginactivity");
         isLoggedIn = intent.getBooleanExtra("LOGGED_IN", false);
+        if (isLoggedIn){
+            userName = intent.getStringExtra("USER_NAME");
+        }
     }
 
 
@@ -31,14 +36,26 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
 
         switch (position){
             case 0:
-                return new SearchFragment();
+                return new SearchFragment(userName);
+//                if (isLoggedIn) {
+//                    return new SearchFragment(userName);
+//                }
+//                else {
+//                    return new SearchFragment();
+//                }
             case 1:
-                if (isLoggedIn == true)
+                if (isLoggedIn)
                     return new MyTicketFragment();
                 else
                     return new LoginRequiredFragment();
             case 2:
-                return new MyAccountFragment();
+                return new MyAccountFragment(userName);
+//                if (isLoggedIn){
+//                    return new MyAccountFragment(userName);
+//                }else {
+//                    return new MyAccountFragment();
+//                }
+
             default:
                 return new SearchFragment();
         }

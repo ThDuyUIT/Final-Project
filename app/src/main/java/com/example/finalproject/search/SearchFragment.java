@@ -18,6 +18,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.finalproject.R;
 import com.example.finalproject.authentication.LoginActivity;
@@ -39,6 +40,14 @@ public class SearchFragment extends Fragment{
     private CategoryAdapter categoryAdapter;
     private TextView txtSignin, txtStartPoint, txtEndPoint, txtDate;
     private Button btnSearch;
+    private String userName;
+
+    public SearchFragment(String userName) {
+        this.userName = userName;
+    }
+
+    public SearchFragment() {
+    }
 
     private ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(new
             ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
@@ -98,13 +107,24 @@ public class SearchFragment extends Fragment{
         categoryAdapter.setCategoryList(getListCategory());
         recyclerView.setAdapter(categoryAdapter);
 
-        txtSignin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext(), LoginActivity.class);
-                startActivity(intent);
-            }
-        });
+        if (!userName.equals("")){
+            txtSignin.setText("Hi " + userName);
+            txtSignin.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    ViewPager2 viewPager = getActivity().findViewById(R.id.viewPager);
+                    viewPager.setCurrentItem(2, true);
+                }
+            });
+        }else {
+            txtSignin.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getContext(), LoginActivity.class);
+                    startActivity(intent);
+                }
+            });
+        }
 
         txtStartPoint.setOnClickListener(new View.OnClickListener() {
             @Override

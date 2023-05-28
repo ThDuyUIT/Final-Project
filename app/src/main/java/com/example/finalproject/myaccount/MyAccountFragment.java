@@ -3,6 +3,7 @@ package com.example.finalproject.myaccount;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,20 +20,28 @@ import androidx.fragment.app.Fragment;
 
 import com.example.finalproject.MainActivity;
 import com.example.finalproject.R;
+import com.example.finalproject.authentication.Account;
 import com.example.finalproject.authentication.LoginActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 import static com.example.finalproject.myaccount.EditInfoActivity.RESULT_OK;
 public class MyAccountFragment extends Fragment{
 
-    private TextView txtUserName, txtMember,txtEdit, txtLogout, txtHelp, txtfullName, txtPhoneNum, txtGender;
+    private TextView txtUserName, txtMember,txtEdit, txtLogout, txtHelp, txtfullName, txtPhoneNum, txtGender, txtEmail;
     private LinearLayout linearLayout;
     private String userName;
     private CircleImageView civ;
+    private Account account;
 
     public MyAccountFragment(String userName) {
         this.userName = userName;
+    }
+
+    public MyAccountFragment(Account account) {
+        this.account = account;
     }
 
     public MyAccountFragment() {
@@ -46,13 +55,22 @@ public class MyAccountFragment extends Fragment{
                 Intent intent = result.getData();
                 Bundle bundle = intent.getBundleExtra("changedInfo");
                 if (bundle!= null) {
-                    String changedName = bundle.getString("changed name");
-                    String changedPhone = bundle.getString("changed phone");
-                    String changedGender = bundle.getString("changed gender");
+                    account = (Account) bundle.get("EDIT ACCOUNT");
+//                    String changedName = bundle.getString("changed name");
+//                    String changedPhone = bundle.getString("changed phone");
+//                    String changedGender = bundle.getString("changed gender");
 
+
+                    String changedName = account.getHoTen();
+                    String changedPhone = account.getSDT();
+                    String changedGender = account.getGioiTinh();
+                    Uri uri = Uri.parse(account.getAnhDaiDien());
+
+                    Picasso.get().load(uri).into(civ);
                     txtfullName.setText(changedName);
                     txtPhoneNum.setText(changedPhone);
                     txtGender.setText(changedGender);
+
                 }
             }
         }
@@ -65,7 +83,7 @@ public class MyAccountFragment extends Fragment{
 
         mapping(view);
 
-        if (userName.equals("")){
+        if (account == null){
             linearLayout.setVisibility(View.GONE);
             txtUserName.setText("Become a member");
             txtMember.setText("To enjoy extra promotions");
@@ -80,25 +98,27 @@ public class MyAccountFragment extends Fragment{
                 }
             });
         }else{
-//            linearLayout.setVisibility(View.VISIBLE);
-//            txtLogout.setVisibility(View.VISIBLE);
-            txtUserName.setText(userName);
-//            txtMember.setText("Member");
-//            txtEdit.setText("Edit");
+            txtUserName.setText(account.getTenTK());
+            txtfullName.setText(account.getHoTen());
+            txtEmail.setText(account.getTenTK());
+            txtGender.setText(account.getGioiTinh());
+            txtPhoneNum.setText(account.getSDT());
+
+            if(!account.getAnhDaiDien().equals("Unknow")){
+                Uri uri = Uri.parse(account.getAnhDaiDien());
+                Picasso.get().load(uri).into(civ);
+            }
 
             txtEdit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    String fullName = txtfullName.getText().toString();
-                    String phoneNum = txtPhoneNum.getText().toString();
-                    String gender = txtGender.getText().toString();
+//                    String fullName = txtfullName.getText().toString();
+//                    String phoneNum = txtPhoneNum.getText().toString();
+//                    String gender = txtGender.getText().toString();
 
                     Intent intent = new Intent(getActivity(), EditInfoActivity.class);
                     Bundle bundle = new Bundle();
-                    bundle.putString("NAME", fullName);
-                    bundle.putString("PHONE", phoneNum);
-                    bundle.putString("GENDER", gender);
-                    //bundle.putParcelable("IMAGE", bitmap);
+                    bundle.putSerializable("ACCOUNT", account);
                     intent.putExtra("to edit", bundle);
 
                     activityResultLauncher.launch(intent);
@@ -122,6 +142,7 @@ public class MyAccountFragment extends Fragment{
         txtLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
                 Intent intent = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);
                 getActivity().finish();
@@ -140,6 +161,7 @@ public class MyAccountFragment extends Fragment{
         txtfullName = (TextView) view.findViewById(R.id.textviewFullName);
         txtPhoneNum = (TextView) view.findViewById(R.id.textviewPhone);
         txtGender = (TextView) view.findViewById(R.id.textviewGender);
+        txtEmail = (TextView) view.findViewById(R.id.textviewEmail);
         civ = (CircleImageView) view.findViewById(R.id.circleimageUser);
 
         linearLayout = (LinearLayout) view.findViewById(R.id.linearContainInfoUser);

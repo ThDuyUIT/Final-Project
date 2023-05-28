@@ -6,6 +6,8 @@ public class Account implements Serializable {
     private String HoTen;
     private String SDT;
     private String TenTK;
+    private String GioiTinh = "Unknow";
+    private String AnhDaiDien = "Unknow";
 
     public  Account(){
 
@@ -15,6 +17,14 @@ public class Account implements Serializable {
         HoTen = hoTen;
         this.SDT = SDT;
         TenTK = tenTK;
+    }
+
+    public Account(String hoTen, String SDT, String tenTK, String gioiTinh, String anhDaiDien) {
+        HoTen = hoTen;
+        this.SDT = SDT;
+        TenTK = tenTK;
+        GioiTinh = gioiTinh;
+        AnhDaiDien = anhDaiDien;
     }
 
     public String getHoTen() {
@@ -39,5 +49,21 @@ public class Account implements Serializable {
 
     public void setTenTK(String tenTK) {
         TenTK = tenTK;
+    }
+
+    public String getGioiTinh() {
+        return GioiTinh;
+    }
+
+    public void setGioiTinh(String gioiTinh) {
+        GioiTinh = gioiTinh;
+    }
+
+    public String getAnhDaiDien() {
+        return AnhDaiDien;
+    }
+
+    public void setAnhDaiDien(String anhDaiDien) {
+        AnhDaiDien = anhDaiDien;
     }
 }

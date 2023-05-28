@@ -77,24 +77,6 @@ public class SearchFragment extends Fragment{
         }
     });
 
-//    private ActivityResultLauncher<Intent> activityCalendarResultLauncher = registerForActivityResult(new
-//            ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
-//        @Override
-//        public void onActivityResult(ActivityResult result) {
-//            if(result.getResultCode() == RESULT_OK){
-//                Intent intent = result.getData();
-//                Bundle bundle = intent.getBundleExtra("selectedValue");
-//                String strNamePoint = bundle.getString("namepoint");
-//                String strNameOption = bundle.getString("nameoption");
-//                if(strNamePoint.equals("Start point")){
-//                    txtStartPoint.setText(strNameOption);
-//                }else {
-//                    txtEndPoint.setText(strNameOption);
-//                }
-//            }
-//        }
-//    });
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -107,7 +89,7 @@ public class SearchFragment extends Fragment{
         categoryAdapter.setCategoryList(getListCategory());
         recyclerView.setAdapter(categoryAdapter);
 
-        if (!userName.equals("")){
+        if (userName != null){
             txtSignin.setText("Hi " + userName);
             txtSignin.setOnClickListener(new View.OnClickListener() {
                 @Override

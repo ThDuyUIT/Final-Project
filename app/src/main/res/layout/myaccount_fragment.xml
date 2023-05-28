@@ -77,18 +77,19 @@
       app:layout_constraintEnd_toEndOf="parent"
       android:id="@+id/linearContainInfoUser"
       android:layout_margin="@dimen/margin_base"
-      android:weightSum="2"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:orientation="horizontal">
+      android:orientation="vertical">
 
+<!--    Full name-->
     <LinearLayout
-        android:layout_weight="1"
+        android:weightSum="2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
       <TextView
+          android:layout_weight="1"
           android:drawableLeft="@drawable/user_icon"
           style="@style/edt_view"
           android:layout_width="wrap_content"
@@ -96,6 +97,26 @@
           android:text="@string/text_full_name"/>
 
       <TextView
+          android:gravity="right"
+          android:layout_weight="1"
+          android:id="@+id/textviewFullName"
+          style="@style/edt_view"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Lương Việt Hoàng"/>
+
+
+    </LinearLayout>
+
+<!--    Gender-->
+    <LinearLayout
+        android:weightSum="2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+      <TextView
+          android:layout_weight="1"
           android:drawableLeft="@drawable/gender_icon"
           style="@style/edt_view"
           android:layout_width="wrap_content"
@@ -103,6 +124,24 @@
           android:text="@string/text_gender"/>
 
       <TextView
+          android:gravity="right"
+          android:layout_weight="1"
+          android:id="@+id/textviewGender"
+          style="@style/edt_view"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Male"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:weightSum="2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+      <TextView
+          android:layout_weight="1"
           android:drawableLeft="@drawable/email_icon"
           style="@style/edt_view"
           android:layout_width="wrap_content"
@@ -110,43 +149,33 @@
           android:text="@string/text_email"/>
 
       <TextView
-          android:drawableLeft="@drawable/phone_icon"
-          style="@style/edt_view"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:text="@string/text_phone"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginLeft="@dimen/margin_base0.5"
-        android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-      <TextView
-          android:id="@+id/textviewFullName"
-          style="@style/edt_view"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:text="Lương Việt Hoàng"/>
-
-      <TextView
-          android:id="@+id/textviewGender"
-          style="@style/edt_view"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:text="Male"/>
-
-      <TextView
+          android:layout_weight="1"
+          android:gravity="right"
           android:id="@+id/textviewEmail"
           style="@style/edt_view"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:text="demo@gmail.com"/>
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:weightSum="2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
       <TextView
+          android:layout_weight="1"
+          android:drawableLeft="@drawable/phone_icon"
+          style="@style/edt_view"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/text_phone"/>
+
+      <TextView
+          android:gravity="right"
+          android:layout_weight="1"
           style="@style/edt_view"
           android:id="@+id/textviewPhone"
           android:layout_width="wrap_content"

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/background">
+
+    <LinearLayout
+        android:id="@+id/layoutHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:background="@color/maincolor1">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:id="@+id/backBefore"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back_icon"
+            android:padding="10dp"
+            app:tint="@color/maincolor2" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textviewRoute"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_report"
+                android:textColor="@color/maincolor2"
+                android:textSize="@dimen/text_content_size"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/margin_basex2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/linearTicket"
+        android:layout_marginBottom="@dimen/margin_base0.25"
+        android:minHeight="120dp"
+        android:background="@drawable/ticket_background">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/imageTicket"
+            android:layout_width="@dimen/width_img_ticket"
+            android:layout_height="match_parent"
+            android:src="@drawable/today_icon"
+            android:padding="@dimen/margin_base"/>
+
+        <TextView
+            android:layout_marginTop="@dimen/margin_base"
+            android:id="@+id/nameTicket"
+            style="@style/bus_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_base0.5"
+            android:text="Daily report" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/linearTicket"
+        android:layout_marginBottom="@dimen/margin_base0.25"
+        android:minHeight="120dp"
+        android:background="@drawable/ticket_background">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/imageTicket"
+            android:layout_width="@dimen/width_img_ticket"
+            android:layout_height="match_parent"
+            android:src="@drawable/event_icon"
+            android:padding="@dimen/margin_base"/>
+
+        <TextView
+            android:layout_marginTop="@dimen/margin_base"
+            android:id="@+id/nameTicket"
+            style="@style/bus_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_base0.5"
+            android:text="Monthly report" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/linearTicket"
+        android:layout_marginBottom="@dimen/margin_base0.25"
+        android:minHeight="120dp"
+        android:background="@drawable/ticket_background">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/imageTicket"
+            android:layout_width="@dimen/width_img_ticket"
+            android:layout_height="match_parent"
+            android:src="@drawable/month_icon"
+            android:padding="@dimen/margin_base"/>
+
+        <TextView
+            android:layout_marginTop="@dimen/margin_base"
+            android:id="@+id/nameTicket"
+            style="@style/bus_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_base0.5"
+            android:text="Annual report" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/linearTicket"
+        android:layout_marginBottom="@dimen/margin_base0.25"
+        android:minHeight="120dp"
+        android:background="@drawable/ticket_background">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/imageTicket"
+            android:layout_width="@dimen/width_img_ticket"
+            android:layout_height="match_parent"
+            android:src="@drawable/bus_icon_black"
+            android:padding="@dimen/margin_base"/>
+
+        <TextView
+            android:layout_marginTop="@dimen/margin_base"
+            android:id="@+id/nameTicket"
+            style="@style/bus_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_base0.5"
+            android:text="Bus report" />
+    </LinearLayout>
+
+</LinearLayout>

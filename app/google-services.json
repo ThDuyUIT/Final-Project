@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "942826497934",
+    "project_id": "bus-ticket-booking-ba5f4",
+    "storage_bucket": "bus-ticket-booking-ba5f4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:942826497934:android:f79ee153e728c0691ca6df",
+        "android_client_info": {
+          "package_name": "com.example.finalproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "942826497934-6m0lc3jkvb3k3dv7g9o3nb7ac1mjrkla.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAF7crCetdWpQn_6xFd6d7VASbv2FsPH9Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "942826497934-6m0lc3jkvb3k3dv7g9o3nb7ac1mjrkla.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

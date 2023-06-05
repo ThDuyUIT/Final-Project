@@ -262,126 +262,126 @@
         </LinearLayout>
     </LinearLayout>
 
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="vertical"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
-<!--        <TextView-->
-<!--            android:id="@+id/tv_title"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginStart="@dimen/margin_base"-->
-<!--            android:layout_marginLeft="@dimen/margin_base"-->
-<!--            android:layout_marginTop="@dimen/margin_base0.5"-->
-<!--            android:layout_marginEnd="@dimen/margin_base"-->
-<!--            android:layout_marginRight="@dimen/margin_base"-->
-<!--            android:text="@string/payment_method_title"-->
-<!--            android:textColor="@android:color/black"-->
-<!--            android:theme="@style/edt_view" />-->
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_base"
+            android:layout_marginLeft="@dimen/margin_base"
+            android:layout_marginTop="@dimen/margin_base0.5"
+            android:layout_marginEnd="@dimen/margin_base"
+            android:layout_marginRight="@dimen/margin_base"
+            android:text="@string/payment_method_title"
+            android:textColor="@android:color/black"
+            android:theme="@style/edt_view" />
 
-<!--        &lt;!&ndash;            Danh sach phuong thuc thanh toan&ndash;&gt;-->
+        <!--            Danh sach phuong thuc thanh toan-->
 
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="@dimen/margin_base0.5">-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_base0.5">
 
-<!--            <com.makeramen.roundedimageview.RoundedImageView-->
-<!--                android:id="@+id/imageMomoPayment"-->
-<!--                android:layout_width="70dp"-->
-<!--                android:layout_height="70dp"-->
-<!--                android:padding="8dp"-->
-<!--                android:src="@drawable/momo_payment"-->
-<!--                app:riv_corner_radius="@dimen/basic_radius" />-->
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/imageMomoPayment"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:padding="8dp"
+                android:src="@drawable/momo_payment"
+                app:riv_corner_radius="@dimen/basic_radius" />
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:orientation="vertical"-->
-<!--                android:padding="@dimen/margin_base0.5">-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_base0.5">
 
-<!--                <TextView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="MoMo E-wallet"-->
-<!--                    android:theme="@style/edt_view" />-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="MoMo E-wallet"
+                    android:theme="@style/edt_view" />
 
-<!--                <TextView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="You must have application in your phone" />-->
-<!--            </LinearLayout>-->
-<!--        </LinearLayout>-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="You must have application in your phone" />
+            </LinearLayout>
+        </LinearLayout>
 
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="@dimen/margin_base0.5">-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_base0.5">
 
-<!--            <com.makeramen.roundedimageview.RoundedImageView-->
-<!--                android:id="@+id/imageCardPayment"-->
-<!--                android:layout_width="70dp"-->
-<!--                android:layout_height="70dp"-->
-<!--                android:padding="8dp"-->
-<!--                android:src="@drawable/credit_card"-->
-<!--                app:riv_corner_radius="@dimen/basic_radius" />-->
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/imageCardPayment"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:padding="8dp"
+                android:src="@drawable/credit_card"
+                app:riv_corner_radius="@dimen/basic_radius" />
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:orientation="vertical"-->
-<!--                android:padding="@dimen/margin_base0.5">-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_base0.5">
 
-<!--                <TextView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Credit/Debit card"-->
-<!--                    android:theme="@style/edt_view" />-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Credit/Debit card"
+                    android:theme="@style/edt_view" />
 
-<!--                <TextView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Visa, Maste Card" />-->
-<!--            </LinearLayout>-->
-<!--        </LinearLayout>-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Visa, Maste Card" />
+            </LinearLayout>
+        </LinearLayout>
 
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="@dimen/margin_base0.5">-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_base0.5">
 
-<!--            <com.makeramen.roundedimageview.RoundedImageView-->
-<!--                android:id="@+id/imageStorePayment"-->
-<!--                android:layout_width="70dp"-->
-<!--                android:layout_height="70dp"-->
-<!--                android:padding="8dp"-->
-<!--                android:src="@drawable/store_payment"-->
-<!--                app:riv_corner_radius="@dimen/basic_radius" />-->
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/imageStorePayment"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:padding="8dp"
+                android:src="@drawable/store_payment"
+                app:riv_corner_radius="@dimen/basic_radius" />
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:orientation="vertical"-->
-<!--                android:padding="@dimen/margin_base0.5">-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_base0.5">
 
-<!--                <TextView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="At stores or supermarkets"-->
-<!--                    android:theme="@style/edt_view" />-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="At stores or supermarkets"
+                    android:theme="@style/edt_view" />
 
-<!--                <TextView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Pay at convenient stores, Viettel post or supermarket" />-->
-<!--            </LinearLayout>-->
-<!--        </LinearLayout>-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Pay at convenient stores, Viettel post or supermarket" />
+            </LinearLayout>
+        </LinearLayout>
 
-<!--    </LinearLayout>-->
+    </LinearLayout>
 
     <RelativeLayout
         android:background="@drawable/shadow_button"
@@ -408,7 +408,7 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/buttonNextPayment"
+                android:id="@+id/buttonNComplete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -416,7 +416,7 @@
                 android:background="@drawable/button_shape"
                 android:paddingLeft="@dimen/margin_basex2"
                 android:paddingRight="@dimen/margin_basex2"
-                android:text="Complete"
+                android:text="Confirm informaiton"
                 android:textColor="@color/maincolor2"
                 android:textSize="@dimen/text_content_size" />
         </LinearLayout>

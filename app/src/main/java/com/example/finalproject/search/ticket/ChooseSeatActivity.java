@@ -54,6 +54,7 @@ public class ChooseSeatActivity extends AppCompatActivity {
 
         // BIến hình ảnh ghế đã được chọn
         Drawable booked = getResources().getDrawable(R.drawable.booked_img);
+        Drawable yourseat = getResources().getDrawable(R.drawable.your_seat_img);
         ArrayList<String> seatChoosed = new ArrayList<>();
         // Đăng ký OnClickListener cho từng View ghế
         for (int i = 0; i < seats.length; i++) {
@@ -64,10 +65,10 @@ public class ChooseSeatActivity extends AppCompatActivity {
                     // Biến hình ảnh ghế hiện tại
                     Drawable current = seats[seatNumber].getDrawable();
                     // Kiểm tra xem ghế đã được chọn hay chưa
-                    if (current != null && current.getConstantState().equals(booked.getConstantState())) {
+                    if (current.getConstantState().equals(booked.getConstantState()) || current.getConstantState().equals(yourseat.getConstantState())) {
                         Toast.makeText(getApplicationContext(), "Ghế đã được đặt", Toast.LENGTH_SHORT).show();
                     }
-                    else {
+                    else if (!seatChoosed.contains(seatNumber) && seatChoosed.size() < 6) {
                         int remainder = seatNumber % 4;
                         // Đổi ảnh ghế khi được click
                         ImageView seat = (ImageView) v;
@@ -86,6 +87,9 @@ public class ChooseSeatActivity extends AppCompatActivity {
                         }
                         seatChoosed.add(output);
                         txtSeatChoose.setText(seatChoosed.toString().replace("[", "").replace("]", ""));
+                    }
+                    else if (seatChoosed.size() >= 6) {
+                        Toast.makeText(getApplicationContext(), "Bạn đã chọn đủ số ghế tối đa, 6 ghế", Toast.LENGTH_SHORT).show();
                     }
                 }
             });
@@ -116,7 +120,7 @@ public class ChooseSeatActivity extends AppCompatActivity {
         txtDate = (TextView) findViewById(R.id.textviewDepartureDate);
         rtnBack = (ImageView) findViewById(R.id.backBefore);
         btnContinue = findViewById(R.id.buttonNextCusinfo);
-        txtSeatChoose =findViewById(R.id.seatChoose);
+        txtSeatChoose = findViewById(R.id.seatChoose);
 
         // Vé xe
         imgBus = findViewById(R.id.imageTicket);

@@ -2,17 +2,23 @@ package com.example.finalproject.search.ticket;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.finalproject.MainActivity;
 import com.example.finalproject.R;
+import com.example.finalproject.search.SearchFragment;
 
 public class PaymentActivity extends AppCompatActivity {
     private TextView txtRoute, txtDate, txtRouteTicket, txtTrip, txtNameTicket, txtBusNumber, txtPrice, txtSeatChoose;
     private TextView txtFullName, txtPhone, txtEmail;
     private ImageView rtnBack;
+    private Button btnComplete;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,7 +26,7 @@ public class PaymentActivity extends AppCompatActivity {
         mapping();
 
         Bundle bundle = getIntent().getExtras();
-        if(bundle == null){
+        if (bundle == null) {
             return;
         }
 
@@ -45,6 +51,15 @@ public class PaymentActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        btnComplete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PaymentActivity.this, MainActivity.class);
+                startActivity(intent);
+                Toast.makeText(getApplicationContext(), "Đã đặt vé thành công", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void mapping(){
@@ -56,6 +71,7 @@ public class PaymentActivity extends AppCompatActivity {
         txtBusNumber = findViewById(R.id.BusNumberInf);
         txtSeatChoose =findViewById(R.id.NumberTicketInf);
         txtPrice = findViewById(R.id.TotalPriceInf);
+        btnComplete = findViewById(R.id.buttonNComplete);
 
         rtnBack = (ImageView) findViewById(R.id.backBefore);
 

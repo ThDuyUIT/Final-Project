@@ -4,9 +4,12 @@
     <string name="text_login">Login</string>
 
     <string name="hint_username">Username</string>
-    <string name="hint_password">Pass word</string>
-    <string name="button_login">Login</string>
+    <string name="hint_password">Password</string>
+    <string name="button_login">Log in</string>
     <string name="text_account_yet">Not have account yet? <u>Sign up</u></string>
+    <string name="hint_price">Price ticket</string>
+    <string name="hint_bus_name">Bus</string>
+    <string name="hint_ticket_id">Ticket id</string>
 
     <!--    Register-->
     <string name="text_signup">Sign up</string>
@@ -40,5 +43,11 @@
     <string name="passenger_details"><b>Passenger Details</b></string>
     <string name="text_ticket_information"><b>Ticket information</b></string>
     <string name="payment_method_title"><b>Payment methods</b></string>
+
+    //admin
+    <string name="text_add_ticket"><b>Add Ticket</b></string>
+    <string name="text_add_route"><b>Add Route</b></string>
+    <string name="text_check_ticket"><b>Check Ticket</b></string>
+    <string name="text_report"><b>Report</b></string>
 
 </resources>

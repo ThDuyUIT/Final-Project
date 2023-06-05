@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/background">
+
+    <LinearLayout
+        android:id="@+id/layoutHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:background="@color/maincolor1">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:id="@+id/backBefore"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back_icon"
+            android:padding="10dp"
+            app:tint="@color/maincolor2" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textviewRoute"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_add_route"
+                android:textColor="@color/maincolor2"
+                android:textSize="@dimen/text_content_size"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/linearTicket"
+        android:layout_marginBottom="@dimen/margin_base0.25"
+        android:minHeight="160dp"
+        android:background="@drawable/ticket_background">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/baseline_route_24"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearlayoutSearchfunction"
+        android:layout_marginTop="@dimen/margin_basex2"
+        android:layout_marginLeft="@dimen/margin_base"
+        android:layout_marginRight="@dimen/margin_base"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rlt_header">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/radius_shape"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:padding="@dimen/basic_radius"
+                android:theme="@style/edt_view"
+                android:id="@+id/textViewStartPoint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_start_point"
+                android:drawableLeft="@drawable/point_start"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/colorPrimary"
+                android:layout_marginLeft="@dimen/margin_base"
+                android:layout_marginRight="@dimen/margin_base"
+                />
+
+            <TextView
+                android:padding="@dimen/basic_radius"
+                android:theme="@style/edt_view"
+                android:id="@+id/textViewEndPoint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_end_point"
+                android:drawableLeft="@drawable/point_end"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/colorPrimary"
+                android:layout_marginLeft="@dimen/margin_base"
+                android:layout_marginRight="@dimen/margin_base"
+                />
+
+        </LinearLayout>
+
+        <Button
+            android:textColor="@color/maincolor2"
+            android:id="@+id/buttonSearchTickets"
+            android:layout_marginTop="@dimen/margin_base"
+            android:background="@drawable/button_shape"
+            android:textSize="@dimen/text_content_size"
+            android:text="@string/text_add_route"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+</LinearLayout>

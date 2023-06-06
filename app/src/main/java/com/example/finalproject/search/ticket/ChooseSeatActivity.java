@@ -65,8 +65,26 @@ public class ChooseSeatActivity extends AppCompatActivity {
                     // Biến hình ảnh ghế hiện tại
                     Drawable current = seats[seatNumber].getDrawable();
                     // Kiểm tra xem ghế đã được chọn hay chưa
-                    if (current.getConstantState().equals(booked.getConstantState()) || current.getConstantState().equals(yourseat.getConstantState())) {
+                    if (current.getConstantState().equals(booked.getConstantState())) {
                         Toast.makeText(getApplicationContext(), "Ghế đã được đặt", Toast.LENGTH_SHORT).show();
+                    }
+                    else if (current.getConstantState().equals(yourseat.getConstantState())) {
+                        int remainder = seatNumber % 4;
+                        ImageView seat = (ImageView) v;
+                        seat.setImageDrawable(null);
+                        seat.setImageResource(R.drawable.available_img);
+                        String output;
+                        if (remainder == 0) {
+                            output = (seatNumber / 4) + 1 + "A";
+                        } else if (remainder == 1) {
+                            output = (seatNumber / 4) + 1 + "B";
+                        } else if (remainder == 2) {
+                            output = (seatNumber / 4) + 1 + "A upstairs";
+                        } else {
+                            output = (seatNumber / 4) + 1 + "B upstairs";
+                        }
+                        seatChoosed.remove(output);
+                        txtSeatChoose.setText(seatChoosed.toString().replace("[", "").replace("]", ""));
                     }
                     else if (!seatChoosed.contains(seatNumber) && seatChoosed.size() < 6) {
                         int remainder = seatNumber % 4;

@@ -1,0 +1,460 @@
+Index: app/src/main/java/com/example/finalproject/authentication/Account.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.finalproject.authentication;\r\n\r\nimport java.io.Serializable;\r\n\r\npublic class Account implements Serializable {\r\n    private String HoTen;\r\n    private String SDT;\r\n    private String TenTK;\r\n    private String GioiTinh = \"Unknow\";\r\n    private String AnhDaiDien = \"Unknow\";\r\n\r\n    public  Account(){\r\n\r\n    }\r\n\r\n    public Account(String hoTen, String SDT, String tenTK) {\r\n        HoTen = hoTen;\r\n        this.SDT = SDT;\r\n        TenTK = tenTK;\r\n    }\r\n\r\n    public Account(String hoTen, String SDT, String tenTK, String gioiTinh, String anhDaiDien) {\r\n        HoTen = hoTen;\r\n        this.SDT = SDT;\r\n        TenTK = tenTK;\r\n        GioiTinh = gioiTinh;\r\n        AnhDaiDien = anhDaiDien;\r\n    }\r\n\r\n    public String getHoTen() {\r\n        return HoTen;\r\n    }\r\n\r\n    public void setHoTen(String hoTen) {\r\n        HoTen = hoTen;\r\n    }\r\n\r\n    public String getSDT() {\r\n        return SDT;\r\n    }\r\n\r\n    public void setSDT(String SDT) {\r\n        this.SDT = SDT;\r\n    }\r\n\r\n    public String getTenTK() {\r\n        return TenTK;\r\n    }\r\n\r\n    public void setTenTK(String tenTK) {\r\n        TenTK = tenTK;\r\n    }\r\n\r\n    public String getGioiTinh() {\r\n        return GioiTinh;\r\n    }\r\n\r\n    public void setGioiTinh(String gioiTinh) {\r\n        GioiTinh = gioiTinh;\r\n    }\r\n\r\n    public String getAnhDaiDien() {\r\n        return AnhDaiDien;\r\n    }\r\n\r\n    public void setAnhDaiDien(String anhDaiDien) {\r\n        AnhDaiDien = anhDaiDien;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/finalproject/authentication/Account.java b/app/src/main/java/com/example/finalproject/authentication/Account.java
+--- a/app/src/main/java/com/example/finalproject/authentication/Account.java	(revision b81b7af4e7615b2786b92b15913945a9402bd409)
++++ b/app/src/main/java/com/example/finalproject/authentication/Account.java	(date 1686406695432)
+@@ -6,8 +6,6 @@
+     private String HoTen;
+     private String SDT;
+     private String TenTK;
+-    private String GioiTinh = "Unknow";
+-    private String AnhDaiDien = "Unknow";
+ 
+     public  Account(){
+ 
+@@ -19,14 +17,6 @@
+         TenTK = tenTK;
+     }
+ 
+-    public Account(String hoTen, String SDT, String tenTK, String gioiTinh, String anhDaiDien) {
+-        HoTen = hoTen;
+-        this.SDT = SDT;
+-        TenTK = tenTK;
+-        GioiTinh = gioiTinh;
+-        AnhDaiDien = anhDaiDien;
+-    }
+-
+     public String getHoTen() {
+         return HoTen;
+     }
+@@ -50,20 +40,4 @@
+     public void setTenTK(String tenTK) {
+         TenTK = tenTK;
+     }
+-
+-    public String getGioiTinh() {
+-        return GioiTinh;
+-    }
+-
+-    public void setGioiTinh(String gioiTinh) {
+-        GioiTinh = gioiTinh;
+-    }
+-
+-    public String getAnhDaiDien() {
+-        return AnhDaiDien;
+-    }
+-
+-    public void setAnhDaiDien(String anhDaiDien) {
+-        AnhDaiDien = anhDaiDien;
+-    }
+ }
+Index: app/src/main/java/com/example/finalproject/myticket/UpcomingTicketFragment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.finalproject.myticket;\r\n\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\nimport android.view.LayoutInflater;\r\nimport android.view.View;\r\nimport android.view.ViewGroup;\r\nimport android.widget.LinearLayout;\r\n\r\nimport androidx.fragment.app.Fragment;\r\nimport androidx.recyclerview.widget.LinearLayoutManager;\r\nimport androidx.recyclerview.widget.RecyclerView;\r\n\r\nimport com.example.finalproject.R;\r\nimport com.example.finalproject.search.ticket.PaymentActivity;\r\nimport com.example.finalproject.search.ticket.Ticket;\r\nimport com.example.finalproject.search.ticket.TicketAdapter;\r\nimport com.example.finalproject.search.ticket.ticket_interface.IClickTicketListener;\r\n\r\nimport java.util.ArrayList;\r\n\r\n/**\r\n * A simple {@link Fragment} subclass.\r\n * Use the {@link UpcomingTicketFragment#newInstance} factory method to\r\n * create an instance of this fragment.\r\n */\r\npublic class UpcomingTicketFragment extends Fragment {\r\n\r\n    private ArrayList<Ticket> tickets;\r\n    private RecyclerView recyclerView;\r\n    private TicketAdapter ticketAdapter;\r\n    private LinearLayout linearLayout;\r\n\r\n\r\n    @Override\r\n    public View onCreateView(LayoutInflater inflater, ViewGroup container,\r\n                             Bundle savedInstanceState) {\r\n        // Inflate the layout for this fragment\r\n        View view = inflater.inflate(R.layout.upcoming_ticket_fragment, container, false);\r\n\r\n        mapping(view);\r\n\r\n        if(ticketAdapter.getItemCount()>0){\r\n            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);\r\n            recyclerView.setLayoutManager(linearLayoutManager);\r\n            recyclerView.setAdapter(ticketAdapter);\r\n\r\n            recyclerView.setVisibility(View.VISIBLE);\r\n            linearLayout.setVisibility(View.GONE);\r\n        }else{\r\n            linearLayout.setVisibility(View.VISIBLE);\r\n            recyclerView.setVisibility(View.GONE);\r\n        }\r\n\r\n        return view;\r\n    }\r\n\r\n    private void mapping(View view){\r\n        setListTicket();\r\n        linearLayout = (LinearLayout) view.findViewById(R.id.linearlayoutNoTickets);\r\n        recyclerView = (RecyclerView) view.findViewById(R.id.recycleviewTicket);\r\n\r\n        ticketAdapter = new TicketAdapter(tickets, new IClickTicketListener() {\r\n            @Override\r\n            public void onClickTicketListener(Ticket ticket) {\r\n                OnClickGotoDetailBookedTicket(ticket);\r\n            }\r\n        });\r\n    }\r\n\r\n    private void setListTicket(){\r\n        tickets = new ArrayList<>();\r\n        tickets.add(new Ticket(R.drawable.limousine21v1, \"Vinh Long - Ho Chi Minh\", \"Giường nằm 40 chỗ có toilet\", \"51A3-21212\",\"9:00 - 11:30\", \"30/04/2023\", \"A3\", \"250.000VND\", \"Lương Việt Hoàng\", \"1234567890\",\"hoang@gmail.com\"));\r\n        tickets.add(new Ticket(R.drawable.limousine21v1, \"Vinh Long - Ho Chi Minh\", \"Giường nằm 40 chỗ có toilet\", \"51A3-21212\",\"9:00 - 11:30\", \"30/04/2023\", \"A3\", \"250.000VND\", \"Lương Việt Hoàng\", \"1234567890\",\"hoang@gmail.com\"));\r\n    }\r\n\r\n    private void OnClickGotoDetailBookedTicket(Ticket ticket){\r\n        Intent intent = new Intent(getContext(), PaymentActivity.class);\r\n        Bundle bundle = new Bundle();\r\n        bundle.putSerializable(\"CustomerTicket\", ticket);\r\n        bundle.putBoolean(\"from my ticket\", true);\r\n        intent.putExtra(\"to payment\", bundle);\r\n        startActivity(intent);\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/finalproject/myticket/UpcomingTicketFragment.java b/app/src/main/java/com/example/finalproject/myticket/UpcomingTicketFragment.java
+--- a/app/src/main/java/com/example/finalproject/myticket/UpcomingTicketFragment.java	(revision b81b7af4e7615b2786b92b15913945a9402bd409)
++++ b/app/src/main/java/com/example/finalproject/myticket/UpcomingTicketFragment.java	(date 1686406695707)
+@@ -1,23 +1,14 @@
+ package com.example.finalproject.myticket;
+ 
+-import android.content.Intent;
+ import android.os.Bundle;
++
++import androidx.fragment.app.Fragment;
++
+ import android.view.LayoutInflater;
+ import android.view.View;
+ import android.view.ViewGroup;
+-import android.widget.LinearLayout;
+-
+-import androidx.fragment.app.Fragment;
+-import androidx.recyclerview.widget.LinearLayoutManager;
+-import androidx.recyclerview.widget.RecyclerView;
+ 
+ import com.example.finalproject.R;
+-import com.example.finalproject.search.ticket.PaymentActivity;
+-import com.example.finalproject.search.ticket.Ticket;
+-import com.example.finalproject.search.ticket.TicketAdapter;
+-import com.example.finalproject.search.ticket.ticket_interface.IClickTicketListener;
+-
+-import java.util.ArrayList;
+ 
+ /**
+  * A simple {@link Fragment} subclass.
+@@ -26,60 +17,11 @@
+  */
+ public class UpcomingTicketFragment extends Fragment {
+ 
+-    private ArrayList<Ticket> tickets;
+-    private RecyclerView recyclerView;
+-    private TicketAdapter ticketAdapter;
+-    private LinearLayout linearLayout;
+-
+ 
+     @Override
+     public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                              Bundle savedInstanceState) {
+         // Inflate the layout for this fragment
+-        View view = inflater.inflate(R.layout.upcoming_ticket_fragment, container, false);
+-
+-        mapping(view);
+-
+-        if(ticketAdapter.getItemCount()>0){
+-            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
+-            recyclerView.setLayoutManager(linearLayoutManager);
+-            recyclerView.setAdapter(ticketAdapter);
+-
+-            recyclerView.setVisibility(View.VISIBLE);
+-            linearLayout.setVisibility(View.GONE);
+-        }else{
+-            linearLayout.setVisibility(View.VISIBLE);
+-            recyclerView.setVisibility(View.GONE);
+-        }
+-
+-        return view;
+-    }
+-
+-    private void mapping(View view){
+-        setListTicket();
+-        linearLayout = (LinearLayout) view.findViewById(R.id.linearlayoutNoTickets);
+-        recyclerView = (RecyclerView) view.findViewById(R.id.recycleviewTicket);
+-
+-        ticketAdapter = new TicketAdapter(tickets, new IClickTicketListener() {
+-            @Override
+-            public void onClickTicketListener(Ticket ticket) {
+-                OnClickGotoDetailBookedTicket(ticket);
+-            }
+-        });
+-    }
+-
+-    private void setListTicket(){
+-        tickets = new ArrayList<>();
+-        tickets.add(new Ticket(R.drawable.limousine21v1, "Vinh Long - Ho Chi Minh", "Giường nằm 40 chỗ có toilet", "51A3-21212","9:00 - 11:30", "30/04/2023", "A3", "250.000VND", "Lương Việt Hoàng", "1234567890","hoang@gmail.com"));
+-        tickets.add(new Ticket(R.drawable.limousine21v1, "Vinh Long - Ho Chi Minh", "Giường nằm 40 chỗ có toilet", "51A3-21212","9:00 - 11:30", "30/04/2023", "A3", "250.000VND", "Lương Việt Hoàng", "1234567890","hoang@gmail.com"));
+-    }
+-
+-    private void OnClickGotoDetailBookedTicket(Ticket ticket){
+-        Intent intent = new Intent(getContext(), PaymentActivity.class);
+-        Bundle bundle = new Bundle();
+-        bundle.putSerializable("CustomerTicket", ticket);
+-        bundle.putBoolean("from my ticket", true);
+-        intent.putExtra("to payment", bundle);
+-        startActivity(intent);
++        return inflater.inflate(R.layout.upcoming_ticket_fragment, container, false);
+     }
+ }
+\ No newline at end of file
+Index: app/src/main/res/drawable-v24/logout.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><vector xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    android:width=\"30dp\"\r\n    android:height=\"30dp\"\r\n    android:viewportWidth=\"960\"\r\n    android:viewportHeight=\"960\"\r\n    android:tint=\"?attr/colorControlNormal\"\r\n    android:autoMirrored=\"true\">\r\n  <path\r\n      android:fillColor=\"@android:color/white\"\r\n      android:pathData=\"M180,840Q156,840 138,822Q120,804 120,780L120,180Q120,156 138,138Q156,120 180,120L471,120L471,180L180,180Q180,180 180,180Q180,180 180,180L180,780Q180,780 180,780Q180,780 180,780L471,780L471,840L180,840ZM666,655L623,612L725,510L375,510L375,450L723,450L621,348L664,305L840,481L666,655Z\"/>\r\n</vector>\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable-v24/logout.xml b/app/src/main/res/drawable-v24/logout.xml
+--- a/app/src/main/res/drawable-v24/logout.xml	(revision b81b7af4e7615b2786b92b15913945a9402bd409)
++++ b/app/src/main/res/drawable-v24/logout.xml	(date 1686406695436)
+@@ -1,6 +1,6 @@
+ <vector xmlns:android="http://schemas.android.com/apk/res/android"
+-    android:width="30dp"
+-    android:height="30dp"
++    android:width="48dp"
++    android:height="48dp"
+     android:viewportWidth="960"
+     android:viewportHeight="960"
+     android:tint="?attr/colorControlNormal"
+Index: app/src/main/res/layout/activity_choose_date.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<LinearLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    android:background=\"@color/colorPrimary\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:orientation=\"vertical\"\r\n    tools:context=\".search.list_city_points.ChooseCityActivity\">\r\n\r\n    <LinearLayout\r\n        android:id=\"@+id/layoutHeader\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:gravity=\"center_vertical\"\r\n        android:orientation=\"horizontal\"\r\n        android:background=\"@color/maincolor1\">\r\n\r\n        <ImageView\r\n            android:id=\"@+id/backBefore\"\r\n            android:layout_width=\"50dp\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:src=\"@drawable/back_icon\"\r\n            android:padding=\"@dimen/margin_base0.5\"\r\n            app:tint=\"@color/maincolor2\" />\r\n\r\n        <TextView\r\n            style=\"@style/edt_view\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"@string/text_come_back\"\r\n            android:textColor=\"@color/maincolor2\" />\r\n\r\n    </LinearLayout>\r\n\r\n    <TextView\r\n        android:id=\"@+id/textviewTitleDate\"\r\n        android:background=\"@color/maincolor2\"\r\n        android:theme=\"@style/edt_view\"\r\n        android:hint=\"@string/hint_date\"\r\n        android:drawableLeft=\"@drawable/date\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:padding=\"@dimen/margin_base\"/>\r\n\r\n    <CalendarView\r\n        android:background=\"@color/maincolor2\"\r\n        android:layout_marginTop=\"@dimen/margin_base0.5\"\r\n        android:firstDayOfWeek=\"2\"\r\n        android:id=\"@+id/calendarview\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:minDate='@{(new java.text.SimpleDateFormat(\"yyyy-MM-dd\")).format(new java.util.Date())}'/>\r\n\r\n    <LinearLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\"\r\n        android:orientation=\"vertical\"\r\n        android:background=\"@color/maincolor2\">\r\n\r\n        <Button\r\n            android:textColor=\"@color/maincolor2\"\r\n            android:id=\"@+id/buttonConfirm\"\r\n            android:layout_marginRight=\"@dimen/margin_base\"\r\n            android:layout_marginLeft=\"@dimen/margin_base\"\r\n            android:background=\"@drawable/button_shape\"\r\n            android:textSize=\"@dimen/text_content_size\"\r\n            android:text=\"@string/tex_confirm\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"/>\r\n\r\n    </LinearLayout>\r\n\r\n\r\n\r\n</LinearLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_choose_date.xml b/app/src/main/res/layout/activity_choose_date.xml
+--- a/app/src/main/res/layout/activity_choose_date.xml	(revision b81b7af4e7615b2786b92b15913945a9402bd409)
++++ b/app/src/main/res/layout/activity_choose_date.xml	(date 1686406683941)
+@@ -33,6 +33,31 @@
+ 
+     </LinearLayout>
+ 
++    <LinearLayout
++        android:id="@+id/layoutHeader"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:gravity="center_vertical"
++        android:orientation="horizontal"
++        android:background="@color/maincolor1">
++
++        <ImageView
++            android:id="@+id/backBefore"
++            android:layout_width="50dp"
++            android:layout_height="wrap_content"
++            android:src="@drawable/back_icon"
++            android:padding="@dimen/margin_base0.5"
++            app:tint="@color/maincolor2" />
++
++        <TextView
++            style="@style/edt_view"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:text="Text c0me back"
++            android:textColor="@color/maincolor2" />
++
++    </LinearLayout>
++
+     <TextView
+         android:id="@+id/textviewTitleDate"
+         android:background="@color/maincolor2"
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_1_8\" project-jdk-name=\"1.8\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\r\n  </component>\r\n  <component name=\"ProjectType\">\r\n    <option name=\"id\" value=\"Android\" />\r\n  </component>\r\n  <component name=\"VisualizationToolProject\">\r\n    <option name=\"state\">\r\n      <ProjectState>\r\n        <option name=\"scale\" value=\"0.02800974251913709\" />\r\n      </ProjectState>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision b81b7af4e7615b2786b92b15913945a9402bd409)
++++ b/.idea/misc.xml	(date 1686406684277)
+@@ -1,6 +1,9 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
++  <component name="ProjectResources">
++    <resource url="http://schemas.android.com/apk/res/android" location="$PROJECT_DIR$" />
++  </component>
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/build/classes" />
+   </component>
+   <component name="ProjectType">
+Index: app/src/main/res/drawable/back_icon.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><vector android:autoMirrored=\"true\" android:height=\"24dp\"\r\n    android:tint=\"#000000\" android:viewportHeight=\"24\"\r\n    android:viewportWidth=\"24\" android:width=\"24dp\" xmlns:android=\"http://schemas.android.com/apk/res/android\">\r\n    <path android:fillColor=\"@android:color/white\" android:pathData=\"M11.67,3.87L9.9,2.1 0,12l9.9,9.9 1.77,-1.77L3.54,12z\"/>\r\n</vector>\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/back_icon.xml b/app/src/main/res/drawable/back_icon.xml
+--- a/app/src/main/res/drawable/back_icon.xml	(revision b81b7af4e7615b2786b92b15913945a9402bd409)
++++ b/app/src/main/res/drawable/back_icon.xml	(date 1686406683934)
+@@ -5,3 +5,5 @@
+ </vector>
+ 
+ 
++
++
+Index: app/src/main/java/com/example/finalproject/authentication/RegisterActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.finalproject.authentication;\r\n\r\nimport android.app.Activity;\r\nimport android.content.Context;\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\nimport android.util.Log;\r\nimport android.util.Patterns;\r\nimport android.view.View;\r\nimport android.widget.Button;\r\nimport android.widget.EditText;\r\nimport android.widget.ImageView;\r\nimport android.widget.TextView;\r\nimport android.widget.Toast;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport com.example.finalproject.R;\r\nimport com.google.android.gms.tasks.OnCompleteListener;\r\nimport com.google.android.gms.tasks.Task;\r\nimport com.google.firebase.auth.AuthResult;\r\nimport com.google.firebase.auth.EmailAuthProvider;\r\nimport com.google.firebase.auth.FirebaseAuth;\r\nimport com.google.firebase.auth.SignInMethodQueryResult;\r\nimport com.google.firebase.database.DataSnapshot;\r\nimport com.google.firebase.database.DatabaseError;\r\nimport com.google.firebase.database.DatabaseReference;\r\nimport com.google.firebase.database.FirebaseDatabase;\r\nimport com.google.firebase.database.ValueEventListener;\r\n\r\nimport java.text.SimpleDateFormat;\r\nimport java.util.Date;\r\nimport java.util.List;\r\n\r\npublic class RegisterActivity extends AppCompatActivity {\r\n\r\n    EditText edtName, edtPhoneNum, edtUser, edtPass, edtPass2;\r\n    Button btnRegister;\r\n    TextView txtGotoLogin;\r\n    ImageView btnBack;\r\n    private FirebaseAuth auth;\r\n    private DatabaseReference userRef;\r\n    private Account account;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_register);\r\n\r\n        mapping();\r\n\r\n        txtGotoLogin.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View view) {\r\n                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);\r\n                startActivity(intent);\r\n                finish();\r\n            }\r\n        });\r\n\r\n        btnRegister.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View view) {\r\n                String strUserName = edtUser.getText().toString().trim();\r\n                String strPass = edtPass.getText().toString();\r\n                String strFullName = edtName.getText().toString();\r\n                String strPhone = edtPhoneNum.getText().toString();\r\n                String strConfirmPass = edtPass2.getText().toString();\r\n                String strGender = \"unknow\";\r\n                int srcHinh = 0;\r\n\r\n                //Kiem tra ko bo trong cac thong tin\r\n                if(strFullName.isEmpty() || strPhone.isEmpty() || strUserName.isEmpty() || strPass.isEmpty() || strConfirmPass.isEmpty()){\r\n                    Toast.makeText(RegisterActivity.this, \"Please fill in all the information\", Toast.LENGTH_LONG).show();\r\n                    return;\r\n                }\r\n                //Do dai sdt >=10\r\n                if(strPhone.length() < 10){\r\n                    Toast.makeText(RegisterActivity.this, \"Phone number length greater than 9.\", Toast.LENGTH_LONG).show();\r\n                    return;\r\n                }\r\n\r\n                //ktra format email\r\n                if(!Patterns.EMAIL_ADDRESS.matcher(strUserName).matches()) {\r\n                    Toast.makeText(RegisterActivity.this, \"Invalid email format.\", Toast.LENGTH_LONG).show();\r\n                    return;\r\n                }\r\n\r\n                if(!strConfirmPass.equals(strPass)){\r\n                    Toast.makeText(RegisterActivity.this, \"Confirmation password does not match.\", Toast.LENGTH_LONG).show();\r\n                    return;\r\n                }\r\n\r\n                account = new Account(strFullName, strPhone, strUserName, \"Unknow\", \"Unknow\");\r\n                createAccount(account, strPass);\r\n\r\n            }\r\n        });\r\n\r\n        btnBack.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                Context context = v.getContext();\r\n                if (context instanceof Activity) {\r\n                    ((Activity) context).finish();\r\n                }\r\n            }\r\n        });\r\n    }\r\n\r\n    private void mapping(){\r\n        btnBack = (ImageView) findViewById(R.id.backBefore);\r\n        edtName = (EditText) findViewById(R.id.editTextName);\r\n        edtPhoneNum = (EditText) findViewById(R.id.editPhoneNumbers);\r\n        edtUser = (EditText) findViewById(R.id.editTextRegisterUsername);\r\n        edtPass = (EditText) findViewById(R.id.editTextRegisterPass);\r\n        edtPass2 = (EditText) findViewById(R.id.editTextConfirmPass);\r\n        txtGotoLogin = (TextView) findViewById(R.id.textViewGotoLogin);\r\n        btnRegister = (Button) findViewById(R.id.buttonRegister);\r\n\r\n        auth = FirebaseAuth.getInstance();\r\n        userRef = FirebaseDatabase.getInstance().getReference(\"KHACHHANG\");\r\n    }\r\n\r\n    private void createAccount(Account account, String pass){\r\n        //kiem tra ten tai khoan da ton tai chua?\r\n        auth.fetchSignInMethodsForEmail(account.getTenTK())\r\n                .addOnCompleteListener(new OnCompleteListener<SignInMethodQueryResult>() {\r\n                    @Override\r\n                    public void onComplete(@NonNull Task<SignInMethodQueryResult> task) {\r\n                        if (task.isSuccessful()) {\r\n                            SignInMethodQueryResult result = task.getResult();\r\n                            List<String> signInMethods = result.getSignInMethods();\r\n                            if (signInMethods != null && signInMethods.contains(EmailAuthProvider.EMAIL_PASSWORD_SIGN_IN_METHOD)) {\r\n                                // user with this email already exists\r\n                                Toast.makeText(RegisterActivity.this, \"An account with this email already exists.\", Toast.LENGTH_LONG).show();\r\n                            }else{\r\n                                addNew(account, pass);\r\n                            }\r\n                        }else{\r\n                            Toast.makeText(RegisterActivity.this, \"Error checking for existing email.\", Toast.LENGTH_LONG).show();\r\n                        }\r\n                    }\r\n                });\r\n    }\r\n\r\n    private void addNew(Account account, String pass){\r\n        // create new user account\r\n        auth.createUserWithEmailAndPassword(account.getTenTK(), pass)\r\n                .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {\r\n                    @Override\r\n                    public void onComplete(@NonNull Task<AuthResult> task) {\r\n                        if (task.isSuccessful()) {\r\n\r\n                            Toast.makeText(RegisterActivity.this, \"Sign up successfully.\", Toast.LENGTH_LONG).show();\r\n\r\n                            Bundle bundle = new Bundle();\r\n                            bundle.putString(\"Username\", account.getTenTK());\r\n                            bundle.putString(\"Password\", pass);\r\n\r\n                            Intent intent = new Intent();\r\n                            intent.putExtra(\"Account_info\", bundle);\r\n                            setResult(RESULT_OK, intent);\r\n                            finish();\r\n\r\n                            saveInfoUser(account);\r\n                        } else {\r\n                            Toast.makeText(RegisterActivity.this, \"Sign up failed.\", Toast.LENGTH_LONG).show();\r\n                        }\r\n                    }\r\n                });\r\n    }\r\n\r\n    private void saveInfoUser(Account account){\r\n        String Uid = auth.getCurrentUser().getUid();\r\n\r\n        userRef.addListenerForSingleValueEvent(new ValueEventListener() {\r\n            @Override\r\n            public void onDataChange(DataSnapshot snapshot) {\r\n\r\n//                Date now = new Date();\r\n//                SimpleDateFormat dateFormat = new SimpleDateFormat(\"ddMMyyyyHHmmss\");\r\n//\r\n//                String currentTime = dateFormat.format(now);\r\n\r\n                String userId = \"KH\" + Uid;\r\n                userRef.child(userId).setValue(account);\r\n            }\r\n\r\n            @Override\r\n            public void onCancelled(DatabaseError error) {\r\n\r\n            }\r\n        });\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/finalproject/authentication/RegisterActivity.java b/app/src/main/java/com/example/finalproject/authentication/RegisterActivity.java
+--- a/app/src/main/java/com/example/finalproject/authentication/RegisterActivity.java	(revision b81b7af4e7615b2786b92b15913945a9402bd409)
++++ b/app/src/main/java/com/example/finalproject/authentication/RegisterActivity.java	(date 1686406699089)
+@@ -1,47 +1,21 @@
+ package com.example.finalproject.authentication;
+ 
+-import android.app.Activity;
+-import android.content.Context;
++import androidx.appcompat.app.AppCompatActivity;
++
+ import android.content.Intent;
+ import android.os.Bundle;
+-import android.util.Log;
+-import android.util.Patterns;
+ import android.view.View;
+ import android.widget.Button;
+ import android.widget.EditText;
+-import android.widget.ImageView;
+ import android.widget.TextView;
+-import android.widget.Toast;
+-
+-import androidx.annotation.NonNull;
+-import androidx.appcompat.app.AppCompatActivity;
+ 
+ import com.example.finalproject.R;
+-import com.google.android.gms.tasks.OnCompleteListener;
+-import com.google.android.gms.tasks.Task;
+-import com.google.firebase.auth.AuthResult;
+-import com.google.firebase.auth.EmailAuthProvider;
+-import com.google.firebase.auth.FirebaseAuth;
+-import com.google.firebase.auth.SignInMethodQueryResult;
+-import com.google.firebase.database.DataSnapshot;
+-import com.google.firebase.database.DatabaseError;
+-import com.google.firebase.database.DatabaseReference;
+-import com.google.firebase.database.FirebaseDatabase;
+-import com.google.firebase.database.ValueEventListener;
+-
+-import java.text.SimpleDateFormat;
+-import java.util.Date;
+-import java.util.List;
+ 
+ public class RegisterActivity extends AppCompatActivity {
+ 
+     EditText edtName, edtPhoneNum, edtUser, edtPass, edtPass2;
+     Button btnRegister;
+     TextView txtGotoLogin;
+-    ImageView btnBack;
+-    private FirebaseAuth auth;
+-    private DatabaseReference userRef;
+-    private Account account;
+ 
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+@@ -62,55 +36,22 @@
+         btnRegister.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+-                String strUserName = edtUser.getText().toString().trim();
++                String strUserName = edtUser.getText().toString();
+                 String strPass = edtPass.getText().toString();
+-                String strFullName = edtName.getText().toString();
+-                String strPhone = edtPhoneNum.getText().toString();
+-                String strConfirmPass = edtPass2.getText().toString();
+-                String strGender = "unknow";
+-                int srcHinh = 0;
+-
+-                //Kiem tra ko bo trong cac thong tin
+-                if(strFullName.isEmpty() || strPhone.isEmpty() || strUserName.isEmpty() || strPass.isEmpty() || strConfirmPass.isEmpty()){
+-                    Toast.makeText(RegisterActivity.this, "Please fill in all the information", Toast.LENGTH_LONG).show();
+-                    return;
+-                }
+-                //Do dai sdt >=10
+-                if(strPhone.length() < 10){
+-                    Toast.makeText(RegisterActivity.this, "Phone number length greater than 9.", Toast.LENGTH_LONG).show();
+-                    return;
+-                }
+-
+-                //ktra format email
+-                if(!Patterns.EMAIL_ADDRESS.matcher(strUserName).matches()) {
+-                    Toast.makeText(RegisterActivity.this, "Invalid email format.", Toast.LENGTH_LONG).show();
+-                    return;
+-                }
+-
+-                if(!strConfirmPass.equals(strPass)){
+-                    Toast.makeText(RegisterActivity.this, "Confirmation password does not match.", Toast.LENGTH_LONG).show();
+-                    return;
+-                }
+ 
+-                account = new Account(strFullName, strPhone, strUserName, "Unknow", "Unknow");
+-                createAccount(account, strPass);
++                Bundle bundle = new Bundle();
++                bundle.putString("Username", strUserName);
++                bundle.putString("Password", strPass);
+ 
+-            }
+-        });
+-
+-        btnBack.setOnClickListener(new View.OnClickListener() {
+-            @Override
+-            public void onClick(View v) {
+-                Context context = v.getContext();
+-                if (context instanceof Activity) {
+-                    ((Activity) context).finish();
+-                }
++                Intent intent = new Intent();
++                intent.putExtra("Account_info", bundle);
++                setResult(RESULT_OK, intent);
++                finish();
+             }
+         });
+     }
+ 
+     private void mapping(){
+-        btnBack = (ImageView) findViewById(R.id.backBefore);
+         edtName = (EditText) findViewById(R.id.editTextName);
+         edtPhoneNum = (EditText) findViewById(R.id.editPhoneNumbers);
+         edtUser = (EditText) findViewById(R.id.editTextRegisterUsername);
+@@ -118,81 +59,5 @@
+         edtPass2 = (EditText) findViewById(R.id.editTextConfirmPass);
+         txtGotoLogin = (TextView) findViewById(R.id.textViewGotoLogin);
+         btnRegister = (Button) findViewById(R.id.buttonRegister);
+-
+-        auth = FirebaseAuth.getInstance();
+-        userRef = FirebaseDatabase.getInstance().getReference("KHACHHANG");
+-    }
+-
+-    private void createAccount(Account account, String pass){
+-        //kiem tra ten tai khoan da ton tai chua?
+-        auth.fetchSignInMethodsForEmail(account.getTenTK())
+-                .addOnCompleteListener(new OnCompleteListener<SignInMethodQueryResult>() {
+-                    @Override
+-                    public void onComplete(@NonNull Task<SignInMethodQueryResult> task) {
+-                        if (task.isSuccessful()) {
+-                            SignInMethodQueryResult result = task.getResult();
+-                            List<String> signInMethods = result.getSignInMethods();
+-                            if (signInMethods != null && signInMethods.contains(EmailAuthProvider.EMAIL_PASSWORD_SIGN_IN_METHOD)) {
+-                                // user with this email already exists
+-                                Toast.makeText(RegisterActivity.this, "An account with this email already exists.", Toast.LENGTH_LONG).show();
+-                            }else{
+-                                addNew(account, pass);
+-                            }
+-                        }else{
+-                            Toast.makeText(RegisterActivity.this, "Error checking for existing email.", Toast.LENGTH_LONG).show();
+-                        }
+-                    }
+-                });
+-    }
+-
+-    private void addNew(Account account, String pass){
+-        // create new user account
+-        auth.createUserWithEmailAndPassword(account.getTenTK(), pass)
+-                .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
+-                    @Override
+-                    public void onComplete(@NonNull Task<AuthResult> task) {
+-                        if (task.isSuccessful()) {
+-
+-                            Toast.makeText(RegisterActivity.this, "Sign up successfully.", Toast.LENGTH_LONG).show();
+-
+-                            Bundle bundle = new Bundle();
+-                            bundle.putString("Username", account.getTenTK());
+-                            bundle.putString("Password", pass);
+-
+-                            Intent intent = new Intent();
+-                            intent.putExtra("Account_info", bundle);
+-                            setResult(RESULT_OK, intent);
+-                            finish();
+-
+-                            saveInfoUser(account);
+-                        } else {
+-                            Toast.makeText(RegisterActivity.this, "Sign up failed.", Toast.LENGTH_LONG).show();
+-                        }
+-                    }
+-                });
+-    }
+-
+-    private void saveInfoUser(Account account){
+-        String Uid = auth.getCurrentUser().getUid();
+-
+-        userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+-            @Override
+-            public void onDataChange(DataSnapshot snapshot) {
+-
+-//                Date now = new Date();
+-//                SimpleDateFormat dateFormat = new SimpleDateFormat("ddMMyyyyHHmmss");
+-//
+-//                String currentTime = dateFormat.format(now);
+-
+-                String userId = "KH" + Uid;
+-                userRef.child(userId).setValue(account);
+-            }
+-
+-            @Override
+-            public void onCancelled(DatabaseError error) {
+-
+-            }
+-        });
+-
+     }
+ }
+\ No newline at end of file

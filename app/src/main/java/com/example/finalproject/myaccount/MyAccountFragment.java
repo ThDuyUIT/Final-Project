@@ -110,14 +110,12 @@ public class MyAccountFragment extends Fragment{
         txtHelp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String phoneNumber = "1234567890"; // Replace with the phone number you want to call
-
                 // Create an intent with the ACTION_DIAL action and the phone number
-                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phoneNumber));
+                Intent intent = new Intent(getActivity(), HelpCenter_Activity.class);
                 startActivity(intent);
-
             }
         });
+
 
         txtLogout.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,0 +1,190 @@
+Index: app/src/main/java/com/example/finalproject/myticket/UpcomingTicketFragment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.finalproject.myticket;\r\n\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\nimport android.view.LayoutInflater;\r\nimport android.view.View;\r\nimport android.view.ViewGroup;\r\nimport android.widget.LinearLayout;\r\n\r\nimport androidx.fragment.app.Fragment;\r\nimport androidx.recyclerview.widget.LinearLayoutManager;\r\nimport androidx.recyclerview.widget.RecyclerView;\r\n\r\nimport com.example.finalproject.R;\r\nimport com.example.finalproject.search.ticket.PaymentActivity;\r\nimport com.example.finalproject.search.ticket.Ticket;\r\nimport com.example.finalproject.search.ticket.TicketAdapter;\r\nimport com.example.finalproject.search.ticket.ticket_interface.IClickTicketListener;\r\n\r\nimport java.util.ArrayList;\r\n\r\n/**\r\n * A simple {@link Fragment} subclass.\r\n * Use the {@link UpcomingTicketFragment#newInstance} factory method to\r\n * create an instance of this fragment.\r\n */\r\npublic class UpcomingTicketFragment extends Fragment {\r\n\r\n    private ArrayList<Ticket> tickets;\r\n    private RecyclerView recyclerView;\r\n    private TicketAdapter ticketAdapter;\r\n    private LinearLayout linearLayout;\r\n\r\n\r\n    @Override\r\n    public View onCreateView(LayoutInflater inflater, ViewGroup container,\r\n                             Bundle savedInstanceState) {\r\n        // Inflate the layout for this fragment\r\n        View view = inflater.inflate(R.layout.upcoming_ticket_fragment, container, false);\r\n\r\n        mapping(view);\r\n\r\n        if(ticketAdapter.getItemCount()>0){\r\n            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);\r\n            recyclerView.setLayoutManager(linearLayoutManager);\r\n            recyclerView.setAdapter(ticketAdapter);\r\n\r\n            recyclerView.setVisibility(View.VISIBLE);\r\n            linearLayout.setVisibility(View.GONE);\r\n        }else{\r\n            linearLayout.setVisibility(View.VISIBLE);\r\n            recyclerView.setVisibility(View.GONE);\r\n        }\r\n\r\n        return view;\r\n    }\r\n\r\n    private void mapping(View view){\r\n        setListTicket();\r\n        linearLayout = (LinearLayout) view.findViewById(R.id.linearlayoutNoTickets);\r\n        recyclerView = (RecyclerView) view.findViewById(R.id.recycleviewTicket);\r\n\r\n        ticketAdapter = new TicketAdapter(tickets, new IClickTicketListener() {\r\n            @Override\r\n            public void onClickTicketListener(Ticket ticket) {\r\n                OnClickGotoDetailBookedTicket(ticket);\r\n            }\r\n        });\r\n    }\r\n\r\n    private void setListTicket(){\r\n        tickets = new ArrayList<>();\r\n        tickets.add(new Ticket(R.drawable.limousine21v1, \"Vinh Long - Ho Chi Minh\", \"Giường nằm 40 chỗ có toilet\", \"51A3-21212\",\"9:00 - 11:30\", \"30/04/2023\", \"A3\", \"250.000VND\", \"Lương Việt Hoàng\", \"1234567890\",\"hoang@gmail.com\"));\r\n        tickets.add(new Ticket(R.drawable.limousine21v1, \"Vinh Long - Ho Chi Minh\", \"Giường nằm 40 chỗ có toilet\", \"51A3-21212\",\"9:00 - 11:30\", \"30/04/2023\", \"A3\", \"250.000VND\", \"Lương Việt Hoàng\", \"1234567890\",\"hoang@gmail.com\"));\r\n    }\r\n\r\n    private void OnClickGotoDetailBookedTicket(Ticket ticket){\r\n        Intent intent = new Intent(getContext(), PaymentActivity.class);\r\n        Bundle bundle = new Bundle();\r\n        bundle.putSerializable(\"CustomerTicket\", ticket);\r\n        bundle.putBoolean(\"from my ticket\", true);\r\n        intent.putExtra(\"to payment\", bundle);\r\n        startActivity(intent);\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/finalproject/myticket/UpcomingTicketFragment.java b/app/src/main/java/com/example/finalproject/myticket/UpcomingTicketFragment.java
+--- a/app/src/main/java/com/example/finalproject/myticket/UpcomingTicketFragment.java	(revision b81b7af4e7615b2786b92b15913945a9402bd409)
++++ b/app/src/main/java/com/example/finalproject/myticket/UpcomingTicketFragment.java	(date 1686405754476)
+@@ -1,23 +1,14 @@
+ package com.example.finalproject.myticket;
+ 
+-import android.content.Intent;
+ import android.os.Bundle;
++
++import androidx.fragment.app.Fragment;
++
+ import android.view.LayoutInflater;
+ import android.view.View;
+ import android.view.ViewGroup;
+-import android.widget.LinearLayout;
+-
+-import androidx.fragment.app.Fragment;
+-import androidx.recyclerview.widget.LinearLayoutManager;
+-import androidx.recyclerview.widget.RecyclerView;
+ 
+ import com.example.finalproject.R;
+-import com.example.finalproject.search.ticket.PaymentActivity;
+-import com.example.finalproject.search.ticket.Ticket;
+-import com.example.finalproject.search.ticket.TicketAdapter;
+-import com.example.finalproject.search.ticket.ticket_interface.IClickTicketListener;
+-
+-import java.util.ArrayList;
+ 
+ /**
+  * A simple {@link Fragment} subclass.
+@@ -26,60 +17,11 @@
+  */
+ public class UpcomingTicketFragment extends Fragment {
+ 
+-    private ArrayList<Ticket> tickets;
+-    private RecyclerView recyclerView;
+-    private TicketAdapter ticketAdapter;
+-    private LinearLayout linearLayout;
+-
+ 
+     @Override
+     public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                              Bundle savedInstanceState) {
+         // Inflate the layout for this fragment
+-        View view = inflater.inflate(R.layout.upcoming_ticket_fragment, container, false);
+-
+-        mapping(view);
+-
+-        if(ticketAdapter.getItemCount()>0){
+-            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
+-            recyclerView.setLayoutManager(linearLayoutManager);
+-            recyclerView.setAdapter(ticketAdapter);
+-
+-            recyclerView.setVisibility(View.VISIBLE);
+-            linearLayout.setVisibility(View.GONE);
+-        }else{
+-            linearLayout.setVisibility(View.VISIBLE);
+-            recyclerView.setVisibility(View.GONE);
+-        }
+-
+-        return view;
+-    }
+-
+-    private void mapping(View view){
+-        setListTicket();
+-        linearLayout = (LinearLayout) view.findViewById(R.id.linearlayoutNoTickets);
+-        recyclerView = (RecyclerView) view.findViewById(R.id.recycleviewTicket);
+-
+-        ticketAdapter = new TicketAdapter(tickets, new IClickTicketListener() {
+-            @Override
+-            public void onClickTicketListener(Ticket ticket) {
+-                OnClickGotoDetailBookedTicket(ticket);
+-            }
+-        });
+-    }
+-
+-    private void setListTicket(){
+-        tickets = new ArrayList<>();
+-        tickets.add(new Ticket(R.drawable.limousine21v1, "Vinh Long - Ho Chi Minh", "Giường nằm 40 chỗ có toilet", "51A3-21212","9:00 - 11:30", "30/04/2023", "A3", "250.000VND", "Lương Việt Hoàng", "1234567890","hoang@gmail.com"));
+-        tickets.add(new Ticket(R.drawable.limousine21v1, "Vinh Long - Ho Chi Minh", "Giường nằm 40 chỗ có toilet", "51A3-21212","9:00 - 11:30", "30/04/2023", "A3", "250.000VND", "Lương Việt Hoàng", "1234567890","hoang@gmail.com"));
+-    }
+-
+-    private void OnClickGotoDetailBookedTicket(Ticket ticket){
+-        Intent intent = new Intent(getContext(), PaymentActivity.class);
+-        Bundle bundle = new Bundle();
+-        bundle.putSerializable("CustomerTicket", ticket);
+-        bundle.putBoolean("from my ticket", true);
+-        intent.putExtra("to payment", bundle);
+-        startActivity(intent);
++        return inflater.inflate(R.layout.upcoming_ticket_fragment, container, false);
+     }
+ }
+\ No newline at end of file
+Index: app/src/main/res/drawable-v24/logout.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><vector xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    android:width=\"30dp\"\r\n    android:height=\"30dp\"\r\n    android:viewportWidth=\"960\"\r\n    android:viewportHeight=\"960\"\r\n    android:tint=\"?attr/colorControlNormal\"\r\n    android:autoMirrored=\"true\">\r\n  <path\r\n      android:fillColor=\"@android:color/white\"\r\n      android:pathData=\"M180,840Q156,840 138,822Q120,804 120,780L120,180Q120,156 138,138Q156,120 180,120L471,120L471,180L180,180Q180,180 180,180Q180,180 180,180L180,780Q180,780 180,780Q180,780 180,780L471,780L471,840L180,840ZM666,655L623,612L725,510L375,510L375,450L723,450L621,348L664,305L840,481L666,655Z\"/>\r\n</vector>\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable-v24/logout.xml b/app/src/main/res/drawable-v24/logout.xml
+--- a/app/src/main/res/drawable-v24/logout.xml	(revision b81b7af4e7615b2786b92b15913945a9402bd409)
++++ b/app/src/main/res/drawable-v24/logout.xml	(date 1686405754179)
+@@ -1,6 +1,6 @@
+ <vector xmlns:android="http://schemas.android.com/apk/res/android"
+-    android:width="30dp"
+-    android:height="30dp"
++    android:width="48dp"
++    android:height="48dp"
+     android:viewportWidth="960"
+     android:viewportHeight="960"
+     android:tint="?attr/colorControlNormal"
+Index: app/src/main/res/drawable/back_icon.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><vector android:autoMirrored=\"true\" android:height=\"24dp\"\r\n    android:tint=\"#000000\" android:viewportHeight=\"24\"\r\n    android:viewportWidth=\"24\" android:width=\"24dp\" xmlns:android=\"http://schemas.android.com/apk/res/android\">\r\n    <path android:fillColor=\"@android:color/white\" android:pathData=\"M11.67,3.87L9.9,2.1 0,12l9.9,9.9 1.77,-1.77L3.54,12z\"/>\r\n</vector>\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/back_icon.xml b/app/src/main/res/drawable/back_icon.xml
+--- a/app/src/main/res/drawable/back_icon.xml	(revision b81b7af4e7615b2786b92b15913945a9402bd409)
++++ b/app/src/main/res/drawable/back_icon.xml	(date 1686405754143)
+@@ -5,3 +5,5 @@
+ </vector>
+ 
+ 
++
++
+Index: app/src/main/java/com/example/finalproject/authentication/Account.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.finalproject.authentication;\r\n\r\nimport java.io.Serializable;\r\n\r\npublic class Account implements Serializable {\r\n    private String HoTen;\r\n    private String SDT;\r\n    private String TenTK;\r\n    private String GioiTinh = \"Unknow\";\r\n    private String AnhDaiDien = \"Unknow\";\r\n\r\n    public  Account(){\r\n\r\n    }\r\n\r\n    public Account(String hoTen, String SDT, String tenTK) {\r\n        HoTen = hoTen;\r\n        this.SDT = SDT;\r\n        TenTK = tenTK;\r\n    }\r\n\r\n    public Account(String hoTen, String SDT, String tenTK, String gioiTinh, String anhDaiDien) {\r\n        HoTen = hoTen;\r\n        this.SDT = SDT;\r\n        TenTK = tenTK;\r\n        GioiTinh = gioiTinh;\r\n        AnhDaiDien = anhDaiDien;\r\n    }\r\n\r\n    public String getHoTen() {\r\n        return HoTen;\r\n    }\r\n\r\n    public void setHoTen(String hoTen) {\r\n        HoTen = hoTen;\r\n    }\r\n\r\n    public String getSDT() {\r\n        return SDT;\r\n    }\r\n\r\n    public void setSDT(String SDT) {\r\n        this.SDT = SDT;\r\n    }\r\n\r\n    public String getTenTK() {\r\n        return TenTK;\r\n    }\r\n\r\n    public void setTenTK(String tenTK) {\r\n        TenTK = tenTK;\r\n    }\r\n\r\n    public String getGioiTinh() {\r\n        return GioiTinh;\r\n    }\r\n\r\n    public void setGioiTinh(String gioiTinh) {\r\n        GioiTinh = gioiTinh;\r\n    }\r\n\r\n    public String getAnhDaiDien() {\r\n        return AnhDaiDien;\r\n    }\r\n\r\n    public void setAnhDaiDien(String anhDaiDien) {\r\n        AnhDaiDien = anhDaiDien;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/finalproject/authentication/Account.java b/app/src/main/java/com/example/finalproject/authentication/Account.java
+--- a/app/src/main/java/com/example/finalproject/authentication/Account.java	(revision b81b7af4e7615b2786b92b15913945a9402bd409)
++++ b/app/src/main/java/com/example/finalproject/authentication/Account.java	(date 1686405754171)
+@@ -6,8 +6,6 @@
+     private String HoTen;
+     private String SDT;
+     private String TenTK;
+-    private String GioiTinh = "Unknow";
+-    private String AnhDaiDien = "Unknow";
+ 
+     public  Account(){
+ 
+@@ -19,14 +17,6 @@
+         TenTK = tenTK;
+     }
+ 
+-    public Account(String hoTen, String SDT, String tenTK, String gioiTinh, String anhDaiDien) {
+-        HoTen = hoTen;
+-        this.SDT = SDT;
+-        TenTK = tenTK;
+-        GioiTinh = gioiTinh;
+-        AnhDaiDien = anhDaiDien;
+-    }
+-
+     public String getHoTen() {
+         return HoTen;
+     }
+@@ -50,20 +40,4 @@
+     public void setTenTK(String tenTK) {
+         TenTK = tenTK;
+     }
+-
+-    public String getGioiTinh() {
+-        return GioiTinh;
+-    }
+-
+-    public void setGioiTinh(String gioiTinh) {
+-        GioiTinh = gioiTinh;
+-    }
+-
+-    public String getAnhDaiDien() {
+-        return AnhDaiDien;
+-    }
+-
+-    public void setAnhDaiDien(String anhDaiDien) {
+-        AnhDaiDien = anhDaiDien;
+-    }
+ }

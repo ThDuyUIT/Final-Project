@@ -33,6 +33,31 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/layoutHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:background="@color/maincolor1">
+
+        <ImageView
+            android:id="@+id/backBefore"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back_icon"
+            android:padding="@dimen/margin_base0.5"
+            app:tint="@color/maincolor2" />
+
+        <TextView
+            style="@style/edt_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Text c0me back"
+            android:textColor="@color/maincolor2" />
+
+    </LinearLayout>
+
     <TextView
         android:id="@+id/textviewTitleDate"
         android:background="@color/maincolor2"

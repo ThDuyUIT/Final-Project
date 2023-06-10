@@ -47,6 +47,8 @@
         <TextView
             android:id="@+id/textviewMember"
             style="@style/edt_view"
+            android:textSize="15dp"
+            android:textStyle="italic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/text_member"
@@ -66,7 +68,7 @@
         android:layout_alignParentRight="true"
         android:gravity="center_vertical"
         android:paddingRight="@dimen/margin_base"
-        android:text="@string/text_edit"
+        android:drawableLeft="@drawable/edit_icon_"
         android:textColor="@color/maincolor2" />
 
   </RelativeLayout>
@@ -83,38 +85,38 @@
       android:orientation="horizontal">
 
     <LinearLayout
-        android:layout_weight="1"
-        android:layout_width="match_parent"
+        android:layout_width="264dp"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:orientation="vertical">
 
       <TextView
+          style="@style/edt_view"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
           android:drawableLeft="@drawable/user_icon"
+          android:text="@string/text_full_name" />
+
+      <TextView
           style="@style/edt_view"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="@string/text_full_name"/>
-
-      <TextView
           android:drawableLeft="@drawable/gender_icon"
+          android:text="@string/text_gender" />
+
+      <TextView
           style="@style/edt_view"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="@string/text_gender"/>
-
-      <TextView
           android:drawableLeft="@drawable/email_icon"
-          style="@style/edt_view"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:text="@string/text_email"/>
+          android:text="@string/text_email" />
 
       <TextView
-          android:drawableLeft="@drawable/phone_icon"
           style="@style/edt_view"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="@string/text_phone"/>
+          android:drawableLeft="@drawable/phone_icon"
+          android:text="@string/text_phone" />
 
     </LinearLayout>
 
@@ -157,6 +159,7 @@
 
   </LinearLayout>
 
+
   <LinearLayout
       app:layout_constraintTop_toBottomOf="@+id/linearContainInfoUser"
       app:layout_constraintStart_toStartOf="parent"
@@ -167,8 +170,14 @@
       android:layout_height="wrap_content"
       android:orientation="vertical">
 
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#989898"/>
+
     <TextView
         android:id="@+id/textviewHelp"
+        android:layout_marginTop="@dimen/margin_base"
         android:layout_marginBottom="@dimen/margin_base"
         style="@style/edt_view"
         android:layout_width="match_parent"
@@ -201,15 +210,21 @@
 
     <TextView
         android:id="@+id/textviewLogout"
-        android:layout_marginTop="@dimen/margin_base"
-        android:layout_marginBottom="@dimen/margin_base"
         style="@style/edt_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_base"
+        android:layout_marginBottom="@dimen/margin_base"
         android:drawableLeft="@drawable/logout"
         android:drawableRight="@drawable/chevron_right_icon"
         android:text="@string/text_logout"
+        android:textColor="#EC0B0B"
         android:textSize="@dimen/text_content_size" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#989898"/>
   </LinearLayout>
 
 

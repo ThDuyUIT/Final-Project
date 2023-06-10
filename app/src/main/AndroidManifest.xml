@@ -6,7 +6,6 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -14,7 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".myaccount.EditInfoActivity"/>
+        <activity
+            android:name=".myaccount.HelpCenter_Activity"
+            android:exported="false" />
+        <activity android:name=".myaccount.EditInfoActivity" />
         <activity android:name=".search.ticket.CustomerInformationActivity" />
         <activity android:name=".search.ticket.PaymentActivity" />
         <activity android:name=".search.ticket.ChooseSeatActivity" />

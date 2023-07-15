@@ -13,7 +13,6 @@
     <dimen name="width_big_cardview">270dp</dimen>
     <dimen name="height_imgCardview">170dp</dimen>
     <dimen name="distance_text_img">10dp</dimen>
-
     <dimen name="width_img_ticket">150dp</dimen>
     <dimen name="height_img_ticket">110dp</dimen>
 </resources>

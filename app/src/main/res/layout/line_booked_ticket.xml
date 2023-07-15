@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/linearLayoutBookedTicket">
+
+
+    <TextView
+        android:drawableLeft="@drawable/user_icon"
+        android:textSize="@dimen/text_content_size"
+        android:id="@+id/textviewNameKH"
+        android:layout_marginLeft="@dimen/margin_base0.5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nguyen Thanh Duy" />
+
+    <TextView
+        android:drawableLeft="@drawable/phone_icon"
+        android:textSize="@dimen/text_content_size"
+        android:id="@+id/textviewPhoneNums"
+        android:layout_marginLeft="@dimen/margin_base0.5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="0828767179" />
+
+    <TextView
+        android:drawableLeft="@drawable/date"
+        android:textSize="@dimen/text_content_size"
+        android:id="@+id/textviewBookedDate"
+        android:layout_marginLeft="@dimen/margin_base0.5"
+        android:layout_marginBottom="@dimen/margin_base0.5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="0828767179" />
+
+    <View
+        android:layout_marginBottom="@dimen/margin_base0.5"
+        android:layout_marginLeft="@dimen/margin_base0.5"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#989898"/>
+
+
+<!--    <TextView-->
+<!--        android:layout_marginLeft="@dimen/margin_base0.5"-->
+<!--        android:id="@+id/textviewDeparture"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="30/4/2023 | 13:00"/>-->
+
+
+</LinearLayout>

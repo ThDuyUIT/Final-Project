@@ -2,6 +2,7 @@ package com.example.finalproject.search;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,10 +22,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.finalproject.R;
+import com.example.finalproject.authentication.Account;
 import com.example.finalproject.authentication.LoginActivity;
 import com.example.finalproject.search.calendar.ChooseDateActivity;
 import com.example.finalproject.search.list_city_points.ChooseCityActivity;
 import com.example.finalproject.search.ticket.ChooseTicketActivity;
+import com.example.finalproject.search.ticket.Ticket;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -41,13 +49,20 @@ public class SearchFragment extends Fragment{
     private TextView txtSignin, txtStartPoint, txtEndPoint, txtDate;
     private Button btnSearch;
     private String userName;
+    private String idStartPoint;
+    private String idEndPoint;
+    private String idAccount;
+    private Account account;
+    private List<Category> list = new ArrayList<>();
 
-    public SearchFragment(String userName) {
-        this.userName = userName;
+    public SearchFragment(Account account, String idAccount) {
+        this.account = account;
+        this.idAccount = idAccount;
     }
 
     public SearchFragment() {
     }
+
 
     private ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(new
             ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
@@ -61,8 +76,12 @@ public class SearchFragment extends Fragment{
                     String strNameOption = bundle.getString("nameoption");
                     if (strNamePoint.equals("Start point")) {
                         txtStartPoint.setText(strNameOption);
+                        idStartPoint = bundle.getString("idoption");
+                        //Log.d("ID start point", idStartPoint);
                     } else {
                         txtEndPoint.setText(strNameOption);
+                        idEndPoint = bundle.getString("idoption");
+                        //Log.d("ID end point", idEndPoint);
                     }
                 }
 
@@ -86,11 +105,12 @@ public class SearchFragment extends Fragment{
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
-        categoryAdapter.setCategoryList(getListCategory());
+        getListCategory();
+
         recyclerView.setAdapter(categoryAdapter);
 
-        if (userName != null){
-            txtSignin.setText("Hi " + userName);
+        if (account != null){
+            txtSignin.setText("Hi " + account.getTenTK());
             txtSignin.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -170,9 +190,13 @@ public class SearchFragment extends Fragment{
                 Intent intent = new Intent(getActivity(), ChooseTicketActivity.class);
 
                 Bundle bundle = new Bundle();
+                bundle.putString("ID START", idStartPoint);
                 bundle.putString("START", startPoint);
+                bundle.putString("ID END", idEndPoint);
                 bundle.putString("END", endPoint);
                 bundle.putString("DATE", date);
+                bundle.putSerializable("ACCOUNT", account);
+                bundle.putString("ID ACCOUNT", idAccount);
                 intent.putExtra("searchTicketInfo", bundle);
                 startActivity(intent);
             }
@@ -181,29 +205,66 @@ public class SearchFragment extends Fragment{
         return view;
     }
 
-    private List<Category> getListCategory(){
+    private void getListCategory(){
 
         List<ChuyenXe> chuyenXeList = new ArrayList<>();
-        chuyenXeList.add(new ChuyenXe(R.drawable.vinh_long, "TP Hồ Chí Minh - Vĩnh Long", "120.000đ"));
-        chuyenXeList.add(new ChuyenXe(R.drawable.ca_mau, "Vĩnh Long - Cà Mau", "120.000đ"));
-        chuyenXeList.add(new ChuyenXe(R.drawable.soc_trang, "Cà Mau - Sóc Trăng", "120.000đ"));
-        chuyenXeList.add(new ChuyenXe(R.drawable.hau_giang, "Sóc Trăng - Hậu Giang", "120.000đ"));
+        ArrayList<Ticket> tickets = new ArrayList<>();
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference referenceCX = database.getReference("CHUYENXE");
+        referenceCX.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    Ticket ticket = dataSnapshot.getValue(Ticket.class);
+                    if (ticket.getFeaturedRoute().equals("1"))
+                        tickets.add(ticket);
+                }
 
-        chuyenXeList.add(new ChuyenXe(R.drawable.vinh_long, "TP Hồ Chí Minh - Vĩnh Long", "120.000đ"));
-        chuyenXeList.add(new ChuyenXe(R.drawable.ca_mau, "Vĩnh Long - Cà Mau", "120.000đ"));
-        chuyenXeList.add(new ChuyenXe(R.drawable.soc_trang, "Cà Mau - Sóc Trăng", "120.000đ"));
-        chuyenXeList.add(new ChuyenXe(R.drawable.hau_giang, "Sóc Trăng - Hậu Giang", "120.000đ"));
+                for (Ticket element : tickets){
+                    ChuyenXe chuyenXe = new ChuyenXe();
 
-        List<KhuyenMai> khuyenMaiList = new ArrayList<>();
-        khuyenMaiList.add(new KhuyenMai(R.drawable.promotion_1, "Giới thiệu bạn bè nhận quà siêu lớn"));
-        khuyenMaiList.add(new KhuyenMai(R.drawable.promotion_2, "Giới thiệu bạn bè nhận quà siêu lớn"));
-        khuyenMaiList.add(new KhuyenMai(R.drawable.promotion_3, "Giới thiệu bạn bè nhận quà siêu lớn"));
-        khuyenMaiList.add(new KhuyenMai(R.drawable.promotion_4, "Giới thiệu bạn bè nhận quà siêu lớn"));
+                    if (account != null){
+                        chuyenXe.setAccount(account);
+                    }
 
-        List<Category> list = new ArrayList<>();
-        list.add(new Category("Popular bus routes", chuyenXeList));
-        list.add(new Category(khuyenMaiList,"Promotions"));
-        return list;
+                    if (idAccount != null){
+                        chuyenXe.setIdAccount(idAccount);
+                    }
+
+                    chuyenXe.setPrice(element.getPriceTicket());
+                    chuyenXe.setTitle(element.getStartPoint() + " - " + element.getEndPoint());
+                    chuyenXeList.add(chuyenXe);
+                }
+
+                list.add(new Category("Popular bus routes", chuyenXeList));
+                categoryAdapter.setCategoryList(list);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                Toast.makeText(getContext(), error.toString(), Toast.LENGTH_LONG).show();
+            }
+        });
+
+//        chuyenXeList.add(new ChuyenXe(R.drawable.vinh_long, "TP Hồ Chí Minh - Vĩnh Long", "120.000đ"));
+//        chuyenXeList.add(new ChuyenXe(R.drawable.ca_mau, "Vĩnh Long - Cà Mau", "120.000đ"));
+//        chuyenXeList.add(new ChuyenXe(R.drawable.soc_trang, "Cà Mau - Sóc Trăng", "120.000đ"));
+//        chuyenXeList.add(new ChuyenXe(R.drawable.hau_giang, "Sóc Trăng - Hậu Giang", "120.000đ"));
+//
+//        chuyenXeList.add(new ChuyenXe(R.drawable.vinh_long, "TP Hồ Chí Minh - Vĩnh Long", "120.000đ"));
+//        chuyenXeList.add(new ChuyenXe(R.drawable.ca_mau, "Vĩnh Long - Cà Mau", "120.000đ"));
+//        chuyenXeList.add(new ChuyenXe(R.drawable.soc_trang, "Cà Mau - Sóc Trăng", "120.000đ"));
+//        chuyenXeList.add(new ChuyenXe(R.drawable.hau_giang, "Sóc Trăng - Hậu Giang", "120.000đ"));
+
+//        List<KhuyenMai> khuyenMaiList = new ArrayList<>();
+//        khuyenMaiList.add(new KhuyenMai(R.drawable.promotion_1, "Giới thiệu bạn bè nhận quà siêu lớn"));
+//        khuyenMaiList.add(new KhuyenMai(R.drawable.promotion_2, "Giới thiệu bạn bè nhận quà siêu lớn"));
+//        khuyenMaiList.add(new KhuyenMai(R.drawable.promotion_3, "Giới thiệu bạn bè nhận quà siêu lớn"));
+//        khuyenMaiList.add(new KhuyenMai(R.drawable.promotion_4, "Giới thiệu bạn bè nhận quà siêu lớn"));
+//
+//
+//        list.add(new Category(khuyenMaiList,"Promotions"));
+
     }
 
     private void mapping(View view){

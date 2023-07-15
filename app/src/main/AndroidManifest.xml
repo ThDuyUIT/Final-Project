@@ -5,7 +5,8 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
-
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -14,9 +15,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".myaccount.EditInfoActivity"/>
-        <activity android:name=".search.ticket.CustomerInformationActivity" />
-        <activity android:name=".search.ticket.PaymentActivity" />
+        <activity android:name=".admin.reportfunction.ReportActivity"></activity>
+        <activity android:name=".admin.managefunction.VE.DetailBookedTicketActivity" />
+        <activity android:name=".admin.managefunction.VE.ManageVeActivity" />
+        <activity android:name=".admin.managefunction.CHUYENXE.AddRouteActivity" />
+        <activity android:name=".admin.managefunction.CHUYENXE.ManageChuyenXeActivity" />
+        <activity android:name=".admin.managefunction.DIADIEM.AddCityActivity" />
+        <activity android:name=".admin.managefunction.DIADIEM.ManageDiaDiemActivity" />
+        <activity android:name=".admin.managefunction.XE.AddCarActivity" />
+        <activity android:name=".admin.managefunction.XE.ManageXeActivity" />
+        <activity android:name=".admin.MainActivityAdmin" />
+        <activity android:name=".myaccount.EditInfoActivity" /> <!-- <activity android:name=".search.ticket.CustomerInformationActivity" /> -->
+
+        <activity android:name=".search.ticket.PaymentActivity"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="demozpdk"
+                    android:host="app" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".search.ticket.ChooseSeatActivity" />
         <activity android:name=".search.calendar.ChooseDateActivity" />
         <activity android:name=".search.list_city_points.ChooseCityActivity" />

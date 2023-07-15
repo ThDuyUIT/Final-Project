@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".admin.MainActivityAdmin"
+    android:background="@drawable/background"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_marginTop="@dimen/margin_basex2"
+        android:layout_marginBottom="@dimen/margin_base"
+        android:gravity="center"
+        android:text="@string/title_admin"
+        android:theme="@style/text_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/margin_base"
+            android:layout_marginLeft="@dimen/margin_base"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_marginTop="@dimen/margin_base"
+                android:gravity="center_vertical"
+                android:id="@+id/textviewManageCar"
+                android:layout_marginBottom="@dimen/margin_base"
+                style="@style/edt_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/airport_shuttle"
+                android:drawableRight="@drawable/chevron_right_icon"
+                android:text="@string/text_manage_xe"
+                android:textSize="@dimen/text_content_size" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="#989898"/>
+
+            <TextView
+                android:gravity="center_vertical"
+                android:id="@+id/textviewManageCity"
+                android:layout_marginTop="@dimen/margin_base"
+                android:layout_marginBottom="@dimen/margin_base"
+                style="@style/edt_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/location_icon"
+                android:drawableRight="@drawable/chevron_right_icon"
+                android:text="@string/text_manage_diadiem"
+                android:textSize="@dimen/text_content_size" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="#989898"/>
+
+            <TextView
+                android:gravity="center_vertical"
+                android:id="@+id/textviewManageRoute"
+                android:layout_marginTop="@dimen/margin_base"
+                android:layout_marginBottom="@dimen/margin_base"
+                style="@style/edt_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/route"
+                android:drawableRight="@drawable/chevron_right_icon"
+                android:text="@string/text_manage_route"
+                android:textSize="@dimen/text_content_size" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="#989898"/>
+
+            <TextView
+                android:gravity="center_vertical"
+                android:id="@+id/textviewManageTicket"
+                android:layout_marginTop="@dimen/margin_base"
+                android:layout_marginBottom="@dimen/margin_base"
+                style="@style/edt_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/book_online"
+                android:drawableRight="@drawable/chevron_right_icon"
+                android:text="@string/text_manage_ticket"
+                android:textSize="@dimen/text_content_size" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="#989898"/>
+
+            <TextView
+                android:gravity="center_vertical"
+                android:id="@+id/textviewReport"
+                android:layout_marginTop="@dimen/margin_base"
+                android:layout_marginBottom="@dimen/margin_base"
+                style="@style/edt_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/summarize"
+                android:drawableRight="@drawable/chevron_right_icon"
+                android:text="@string/text_report"
+                android:textSize="@dimen/text_content_size" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="#989898"/>
+
+            <TextView
+                android:gravity="center_vertical"
+                android:id="@+id/textviewLogout"
+                android:layout_marginTop="@dimen/margin_base"
+                android:layout_marginBottom="@dimen/margin_base"
+                style="@style/edt_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/logout"
+                android:drawableRight="@drawable/chevron_right_icon"
+                android:text="@string/text_logout"
+                android:textSize="@dimen/text_content_size" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="#989898"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

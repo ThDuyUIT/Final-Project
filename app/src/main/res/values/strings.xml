@@ -28,6 +28,9 @@
     <string name="hint_start_point">Start point</string>
     <string name="hint_end_point">Where to?</string>
     <string name="hint_date">Departure date</string>
+    <string name="hint_time">Departure time</string>
+    <string name="hint_xe">Vehicle</string>
+    <string name="hint_price">Prices</string>
 
     <string name="text_search_tickets">Search tickets</string>
 
@@ -62,4 +65,36 @@
     <string name="text_Female">Female</string>
     <string name="text_Other">Other</string>
     <string name="text_Save">Save</string>
+
+    <string name="title_admin">Admin</string>
+    <string name="text_manage_xe">Manage Car</string>
+    <string name="text_manage_diadiem">Manage City</string>
+    <string name="text_manage_route">Manage Route</string>
+    <string name="text_manage_ticket">Manage Ticket</string>
+    <string name="text_report">Statistic</string>
+
+    <string name="hint_idxe">ID Number</string>
+    <string name="hint_namexe">Name</string>
+    <string name="text_add">Add</string>
+    <string name="text_addnew">Add New</string>
+    <string name="text_update">Update</string>
+    <string name="text_delete">Delete</string>
+    <string name="hint_seat">Seat</string>
+    <string name="text_payment_stt">Payment Status</string>
+    <string name="text_unpaid">Unpaid</string>
+    <string name="text_paid">Paid</string>
+    <string name="text_ticket_stt">Ticket Status</string>
+    <string name="text_upcomming">Upcomming</string>
+    <string name="text_complete">Complete</string>
+    <string name="text_cancle">Cancel</string>
+
+    <string name="text_Feature_route">Featured route</string>
+    <string name="text_featured">Featured</string>
+    <string name="text_featureless">Featureless</string>
+    <string name="text_choose_month">Choose month</string>
+    <string name="text_start_statistic">Start statistic</string>
+    <string name="text_total_tickets">Total Tickets:</string>
+    <string name="text_cancel_tickets">Cancel Tickets:</string>
+    <string name="text_complete_tickets">Complete Tickets:</string>
+    <string name="text_revenue">Revenue:</string>
 </resources>

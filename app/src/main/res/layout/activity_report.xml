@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".admin.reportfunction.ReportActivity"
+    android:orientation="vertical"
+    android:background="@drawable/background">
+
+    <LinearLayout
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/layoutHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/backBefore"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back_icon"
+            android:padding="@dimen/margin_base0.5"
+            app:tint="@color/maincolor2" />
+
+        <TextView
+            style="@style/edt_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_come_back"
+            android:textColor="@color/maincolor2" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginTop="@dimen/margin_base0.5"
+        android:layout_marginBottom="@dimen/margin_base"
+        android:gravity="center"
+        android:text="@string/text_report"
+        android:theme="@style/text_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_marginTop="@dimen/margin_base"
+            android:layout_marginLeft="@dimen/margin_base0.5"
+            android:layout_marginRight="@dimen/margin_base0.5"
+            android:background="@drawable/edittext_shape"
+            android:gravity="center_vertical"
+            android:theme="@style/edt_view"
+            android:id="@+id/textviewDatePicker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/text_choose_month"
+            android:drawableLeft="@drawable/date"/>
+
+        <Button
+            android:id="@+id/buttonStart"
+            android:text="@string/text_start_statistic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_base0.5"
+            android:textSize="@dimen/text_content_size"
+            android:textColor="@color/maincolor2"
+            android:background="@drawable/button_shape"/>
+
+<!--        <TextView-->
+<!--            android:id="@+id/textviewPickedDate"-->
+<!--            android:gravity="center_horizontal"-->
+<!--            android:textColor="@color/maincolor2"-->
+<!--            android:textSize="@dimen/text_content_size"-->
+<!--            android:text="MM/yyyy"-->
+<!--            android:layout_marginTop="@dimen/margin_base"-->
+<!--            android:layout_marginLeft="@dimen/margin_base0.5"-->
+<!--            android:layout_marginRight="@dimen/margin_base0.5"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"/>-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/margin_base"
+            android:layout_marginLeft="@dimen/margin_base0.5"
+            android:layout_marginRight="@dimen/margin_base0.5">
+
+            <TextView
+                android:textColor="@color/maincolor2"
+                android:textSize="@dimen/text_content_size"
+                android:text="@string/text_total_tickets"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/textviewTotalVe"
+                android:layout_marginLeft="@dimen/margin_base0.5"
+                android:textColor="@color/maincolor2"
+                android:textSize="@dimen/text_content_size"
+                android:text="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/margin_base"
+            android:layout_marginLeft="@dimen/margin_base0.5"
+            android:layout_marginRight="@dimen/margin_base0.5">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:textColor="@color/maincolor2"
+                    android:textSize="@dimen/text_content_size"
+                    android:text="@string/text_cancel_tickets"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/textviewCancelRate"
+                    android:layout_marginLeft="@dimen/margin_base0.5"
+                    android:textColor="@color/maincolor2"
+                    android:textSize="@dimen/text_content_size"
+                    android:text="0/0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+
+            <ProgressBar
+                android:id="@+id/progressCancel"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_base0.5"
+                android:background="@color/maincolor2"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/margin_base"
+            android:layout_marginLeft="@dimen/margin_base0.5"
+            android:layout_marginRight="@dimen/margin_base0.5">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:textColor="@color/maincolor2"
+                    android:textSize="@dimen/text_content_size"
+                    android:text="@string/text_complete_tickets"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/textviewCompleteRate"
+                    android:layout_marginLeft="@dimen/margin_base0.5"
+                    android:textColor="@color/maincolor2"
+                    android:textSize="@dimen/text_content_size"
+                    android:text="0/0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+
+            <ProgressBar
+                android:id="@+id/progressComplete"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_base0.5"
+                android:background="@color/maincolor2"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/margin_base"
+            android:layout_marginLeft="@dimen/margin_base0.5"
+            android:layout_marginRight="@dimen/margin_base0.5">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:textColor="@color/maincolor1"
+                    android:textSize="@dimen/text_content_size"
+                    android:text="@string/text_revenue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/textviewRevenueRate"
+                    android:layout_marginLeft="@dimen/margin_base0.5"
+                    android:textColor="@color/maincolor1"
+                    android:textSize="@dimen/text_content_size"
+                    android:text="0/0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+
+            <ProgressBar
+                android:id="@+id/progressRevenue"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_base0.5"
+                android:background="@color/maincolor2" />
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

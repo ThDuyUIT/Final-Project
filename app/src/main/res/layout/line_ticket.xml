@@ -9,19 +9,27 @@
     android:minHeight="160dp"
     android:background="@drawable/ticket_background">
 
+
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/imageTicket"
         android:layout_width="@dimen/width_img_ticket"
         android:layout_height="@dimen/height_img_ticket"
-        app:riv_corner_radius="@dimen/basic_radius"
-        android:src="@drawable/limousine21v1"
         android:padding="8dp"
-        />
+        android:src="@drawable/limousine21v1"
+        app:riv_corner_radius="@dimen/basic_radius" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/nameRoute"
+            style="@style/bus_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vĩnh Long - Tp Hồ Chí Minh" />
 
         <TextView
             android:id="@+id/nameTicket"

@@ -1,7 +1,13 @@
 package com.example.finalproject.search.list_city_points;
 
-public class City {
+import java.io.Serializable;
+
+public class City implements Serializable {
     private String nameCity;
+    private String idCity;
+    private String imageCity;
+
+    public City() {    }
 
     public City(String nameCity) {
         this.nameCity = nameCity;
@@ -13,5 +19,21 @@ public class City {
 
     public void setNameCity(String nameCity) {
         this.nameCity = nameCity;
+    }
+
+    public String getIdCity() {
+        return idCity;
+    }
+
+    public void setIdCity(String idCity) {
+        this.idCity = idCity;
+    }
+
+    public String getImageCity() {
+        return imageCity;
+    }
+
+    public void setImageCity(String imageCity) {
+        this.imageCity = imageCity;
     }
 }

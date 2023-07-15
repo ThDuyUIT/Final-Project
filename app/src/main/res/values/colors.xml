@@ -15,4 +15,5 @@
 
     //textColors
     <color name="colorText_busName">#000</color>
+    <color name="colorText_delete">#FD0000</color>
 </resources>

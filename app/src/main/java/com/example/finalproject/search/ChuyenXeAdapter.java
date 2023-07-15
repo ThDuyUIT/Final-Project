@@ -2,6 +2,7 @@ package com.example.finalproject.search;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finalproject.R;
 import com.example.finalproject.search.ticket.ChooseTicketActivity;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -45,9 +52,53 @@ public class ChuyenXeAdapter extends RecyclerView.Adapter<ChuyenXeAdapter.chuyen
         if(chuyenXe == null){
             return;
         }
-        holder.imgChuyenXe.setImageResource(chuyenXe.getResourceImg());
-        holder.txtChuyenXe.setText(chuyenXe.getTitle());
-        holder.txtGia.setText(chuyenXe.getPrice());
+        String idCity = chuyenXe.getTitle();
+        String[] parts = idCity.split(" - ");
+        String idStart = parts[0];
+        String idEnd = parts[1];
+
+
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("DIADIEM");
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                String tranferedTitle = "";
+                String nameStart = "";
+                String nameEnd = "";
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    String keyDD = dataSnapshot.getKey();
+                    String nameDD = dataSnapshot.child("nameCity").getValue(String.class);
+                    String imgDD = dataSnapshot.child("anhdaidienDD").getValue(String.class);
+                    if (keyDD.equals(idStart)){
+                        nameStart = nameDD;
+                    }
+
+                    if(keyDD.equals(idEnd)){
+                        nameEnd = nameDD;
+
+                        Uri uri = Uri.parse(imgDD);
+                        Picasso.get().load(uri).into(holder.imgChuyenXe);
+                    }
+                }
+
+                tranferedTitle = nameStart + " - " + nameEnd;
+
+                holder.txtChuyenXe.setText(tranferedTitle);
+                holder.txtGia.setText(chuyenXe.getPrice());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+
+            }
+        });
+
+
+//        holder.imgChuyenXe.setImageResource(chuyenXe.getResourceImg());
+//        holder.txtChuyenXe.setText(chuyenXe.getTitle());
+//        holder.txtGia.setText(chuyenXe.getPrice());
 
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
@@ -58,6 +109,7 @@ public class ChuyenXeAdapter extends RecyclerView.Adapter<ChuyenXeAdapter.chuyen
                 //Toast.makeText(context, chuyenXe.getTitle(), Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(context, ChooseTicketActivity.class);
                 Bundle bundle = new Bundle();
+                bundle.putString("City", holder.txtChuyenXe.getText().toString());
                 bundle.putSerializable("Featured Route", chuyenXe);
                 bundle.putBoolean("from ChuyenXeAdapter", true);
                 intent.putExtra("searchTicketInfo", bundle);

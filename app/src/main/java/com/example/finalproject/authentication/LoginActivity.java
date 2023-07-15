@@ -22,6 +22,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.finalproject.MainActivity;
 import com.example.finalproject.R;
+import com.example.finalproject.admin.MainActivityAdmin;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -111,6 +112,14 @@ public class LoginActivity extends AppCompatActivity {
                                 if (task.isSuccessful()) {
 
                                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                                    if (user.getUid().equals("MrAjwN1ZYsZNjqFBeZs9D3vEfer2")){
+                                        Intent intent = new Intent(LoginActivity.this, MainActivityAdmin.class);
+                                        startActivity(intent);
+                                        finish();
+                                        return;
+                                    }
+
                                     String userId = "KH" + user.getUid();
                                     DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("KHACHHANG").child(userId);
 
@@ -125,6 +134,7 @@ public class LoginActivity extends AppCompatActivity {
                                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                                 Bundle bundle = new Bundle();
+                                                bundle.putString("ID ACCOUNT", userId);
                                                 bundle.putSerializable("ACCOUNT", account);
                                                 intent.putExtra("login successful", bundle);
                                                 startActivity(intent);

@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class Ticket implements Serializable {
     private int resourceID;
+    private String srcImg;
     private String nameRoute;
     private String nameTicket;
     private String busNumber;
@@ -11,9 +12,18 @@ public class Ticket implements Serializable {
     private String departureDate;
     private String numberSeat;
     private String priceTicket;
-    private String fullName;
-    private String phone;
-    private String email;
+    private String startPoint;
+    private String endPoint;
+    private String idAccount;
+    private String idTransition;
+    private String idTicket;
+    private String statusPayment;
+    private String statusTicket;
+    private String priceTotal;
+    private String featuredRoute;
+
+    public Ticket() {
+    }
 
     public Ticket(int resourceID, String nameRoute, String nameTicket, String busNumber, String departureTime, String departureDate, String numberSeat, String priceTicket, String fullName, String phone, String email) {
         this.resourceID = resourceID;
@@ -24,9 +34,9 @@ public class Ticket implements Serializable {
         this.departureDate = departureDate;
         this.numberSeat = numberSeat;
         this.priceTicket = priceTicket;
-        this.fullName = fullName;
-        this.phone = phone;
-        this.email = email;
+//        this.fullName = fullName;
+//        this.phone = phone;
+//        this.email = email;
     }
 
     public Ticket (int resourceID, String nameTicket, String busNumber, String departureTime, String priceTicket) {
@@ -101,27 +111,107 @@ public class Ticket implements Serializable {
         this.priceTicket = priceTicket;
     }
 
-    public String getFullName() {
-        return fullName;
+//    public String getFullName() {
+//        return fullName;
+//    }
+//
+//    public void setFullName(String fullName) {
+//        this.fullName = fullName;
+//    }
+//
+//    public String getPhone() {
+//        return phone;
+//    }
+//
+//    public void setPhone(String phone) {
+//        this.phone = phone;
+//    }
+//
+//    public String getEmail() {
+//        return email;
+//    }
+//
+//    public void setEmail(String email) {
+//        this.email = email;
+//    }
+
+    public String getStartPoint() {
+        return startPoint;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setStartPoint(String startPoint) {
+        this.startPoint = startPoint;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getEndPoint() {
+        return endPoint;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setEndPoint(String endPoint) {
+        this.endPoint = endPoint;
     }
 
-    public String getEmail() {
-        return email;
+    public String getIdAccount() {
+        return idAccount;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setIdAccount(String idAccount) {
+        this.idAccount = idAccount;
+    }
+
+    public String getIdTransition() {
+        return idTransition;
+    }
+
+    public void setIdTransition(String idTransition) {
+        this.idTransition = idTransition;
+    }
+
+    public String getStatusPayment() {
+        return statusPayment;
+    }
+
+    public void setStatusPayment(String statusPayment) {
+        this.statusPayment = statusPayment;
+    }
+
+    public String getIdTicket() {
+        return idTicket;
+    }
+
+    public void setIdTicket(String idTicket) {
+        this.idTicket = idTicket;
+    }
+
+    public String getPriceTotal() {
+        return priceTotal;
+    }
+
+    public void setPriceTotal(String priceTotal) {
+        this.priceTotal = priceTotal;
+    }
+
+    public String getSrcImg() {
+        return srcImg;
+    }
+
+    public void setSrcImg(String srcImg) {
+        this.srcImg = srcImg;
+    }
+
+    public String getStatusTicket() {
+        return statusTicket;
+    }
+
+    public void setStatusTicket(String statusTicket) {
+        this.statusTicket = statusTicket;
+    }
+
+    public String getFeaturedRoute() {
+        return featuredRoute;
+    }
+
+    public void setFeaturedRoute(String featuredRoute) {
+        this.featuredRoute = featuredRoute;
     }
 }

@@ -84,99 +84,187 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="@dimen/margin_base"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:weightSum="2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="@dimen/margin_base">
 
-                <!-- Các phần tử giao diện cho bên trái ở đây -->
                 <TextView
+                    android:layout_weight="1"
                     android:id="@+id/TicketRouteTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
                     android:text="Route" />
 
                 <TextView
+                    android:layout_marginRight="@dimen/margin_base"
+                    android:gravity="end"
+                    android:layout_weight="1"
+                    android:id="@+id/TicketRouteInf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Ho Chi Minh - Ca Mau" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_marginLeft="@dimen/margin_base"
                     android:id="@+id/TicketTripTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
                     android:text="Trip" />
 
                 <TextView
+                    android:layout_marginRight="@dimen/margin_base"
+                    android:gravity="end"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="@dimen/margin_base"
+                    android:id="@+id/TicketTripInf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="09:00 Sun, April 30, 1975" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_marginLeft="@dimen/margin_base"
                     android:id="@+id/TicketTypeTitle"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Bus type" />
 
                 <TextView
+                    android:layout_marginRight="@dimen/margin_base"
+                   android:gravity="end"
+                    android:layout_weight="1"
+                    android:id="@+id/BusTypeInf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Giường nằm 40 chô (WC)" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_marginLeft="@dimen/margin_base"
                     android:id="@+id/BustNumberTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
                     android:text="Bus number" />
 
                 <TextView
-                    android:id="@+id/NumberTicketTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Seat" />
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:layout_marginRight="@dimen/margin_base"
+                    android:id="@+id/BusNumberInf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="51A2-12345" />
 
-                <TextView
-                    android:id="@+id/TotalPriceTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Total" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginRight="@dimen/margin_base"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:theme="@style/ticket_inf">
-
-
-                <!-- Các phần tử giao diện cho bên phải ở đây -->
-                <TextView
-                    android:id="@+id/TicketRouteInf"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Ho Chi Minh - Ca Mau" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
 
                 <TextView
-                    android:id="@+id/TicketTripInf"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="09:00 Sun, April 30, 1975" />
+                    android:layout_marginLeft="@dimen/margin_base"
+                    android:layout_weight="1"
+                    android:id="@+id/NumberTicketTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Seat" />
 
                 <TextView
-                    android:id="@+id/BusTypeInf"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Giường nằm 40 chô (WC)" />
-
-                <TextView
-                    android:id="@+id/BusNumberInf"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="51A2-12345" />
-
-                <TextView
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:layout_marginRight="@dimen/margin_base"
                     android:id="@+id/NumberTicketInf"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
                     android:text="1A, 2A" />
 
-                <TextView
-                    android:id="@+id/TotalPriceInf"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="699.000 VND" />
             </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_marginLeft="@dimen/margin_base"
+                    android:id="@+id/TotalPriceTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Total" />
+
+                <TextView
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:layout_marginRight="@dimen/margin_base"
+                    android:id="@+id/TotalPriceInf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="699.000 VND" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_marginLeft="@dimen/margin_base"
+                    android:id="@+id/PaymentStatusTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/text_payment_stt" />
+
+                <TextView
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:layout_marginRight="@dimen/margin_base"
+                    android:id="@+id/PaymentStatusInf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Unpaid" />
+
+            </LinearLayout>
+
 
         </LinearLayout>
     </LinearLayout>
@@ -289,100 +377,181 @@
 
             <!--            Danh sach phuong thuc thanh toan-->
 
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="@dimen/margin_base0.5">-->
+
+<!--                <com.makeramen.roundedimageview.RoundedImageView-->
+<!--                    android:id="@+id/imageMomoPayment"-->
+<!--                    android:layout_width="70dp"-->
+<!--                    android:layout_height="70dp"-->
+<!--                    android:padding="8dp"-->
+<!--                    android:src="@drawable/momo_payment"-->
+<!--                    app:riv_corner_radius="@dimen/basic_radius" />-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:padding="@dimen/margin_base0.5">-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="MoMo E-wallet"-->
+<!--                        android:theme="@style/edt_view" />-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="You must have application in your phone" />-->
+<!--                </LinearLayout>-->
+<!--            </LinearLayout>-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="@dimen/margin_base0.5">-->
+
+<!--                <com.makeramen.roundedimageview.RoundedImageView-->
+<!--                    android:id="@+id/imageCardPayment"-->
+<!--                    android:layout_width="70dp"-->
+<!--                    android:layout_height="70dp"-->
+<!--                    android:padding="8dp"-->
+<!--                    android:src="@drawable/credit_card"-->
+<!--                    app:riv_corner_radius="@dimen/basic_radius" />-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:padding="@dimen/margin_base0.5">-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Credit/Debit card"-->
+<!--                        android:theme="@style/edt_view" />-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Visa, Maste Card" />-->
+<!--                </LinearLayout>-->
+<!--            </LinearLayout>-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_base0.5">
-
-                <com.makeramen.roundedimageview.RoundedImageView
-                    android:id="@+id/imageMomoPayment"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:padding="8dp"
-                    android:src="@drawable/momo_payment"
-                    app:riv_corner_radius="@dimen/basic_radius" />
+                android:orientation="horizontal"
+                android:weightSum="4">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
                     android:orientation="vertical"
-                    android:padding="@dimen/margin_base0.5">
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="MoMo E-wallet"
-                        android:theme="@style/edt_view" />
+                        android:layout_marginTop="@dimen/margin_base0.5">
 
-                    <TextView
+                        <com.makeramen.roundedimageview.RoundedImageView
+                            android:id="@+id/imageStorePayment"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:padding="8dp"
+                            android:src="@drawable/store_payment"
+                            app:riv_corner_radius="@dimen/basic_radius" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="@dimen/margin_base0.5">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="At transition station"
+                                android:theme="@style/edt_view" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Pay at transition station" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="You must have application in your phone" />
+                        android:layout_height="wrap_content">
+
+                        <com.makeramen.roundedimageview.RoundedImageView
+                            android:id="@+id/imageZalopay"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:padding="8dp"
+                            android:src="@drawable/zalopay_logo"
+                            app:riv_corner_radius="@dimen/basic_radius" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="@dimen/margin_base0.5">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="At Zalopay app"
+                                android:theme="@style/edt_view" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Pay with Zalopay" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
                 </LinearLayout>
-            </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_base0.5">
-
-                <com.makeramen.roundedimageview.RoundedImageView
-                    android:id="@+id/imageCardPayment"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:padding="8dp"
-                    android:src="@drawable/credit_card"
-                    app:riv_corner_radius="@dimen/basic_radius" />
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
                     android:orientation="vertical"
-                    android:padding="@dimen/margin_base0.5">
+                    android:layout_gravity="right">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Credit/Debit card"
-                        android:theme="@style/edt_view" />
+                    <RadioGroup
+                        android:id="@+id/radioPaymentMethods"
+                        android:paddingRight="@dimen/margin_base0.5"                      android:layout_gravity="right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:weightSum="2">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Visa, Maste Card" />
+                        <RadioButton
+                            android:id="@+id/radiobuttonstation"
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"/>
+
+                        <RadioButton
+                            android:id="@+id/radiobuttonzalopay"
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"/>
+
+                    </RadioGroup>
+
                 </LinearLayout>
-            </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_base0.5">
-
-                <com.makeramen.roundedimageview.RoundedImageView
-                    android:id="@+id/imageStorePayment"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:padding="8dp"
-                    android:src="@drawable/store_payment"
-                    app:riv_corner_radius="@dimen/basic_radius" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="@dimen/margin_base0.5">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="At stores or supermarkets"
-                        android:theme="@style/edt_view" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Pay at convenient stores, Viettel post or supermarket" />
-                </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>
